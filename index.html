@@ -1378,7 +1378,7 @@
             <label class="nf-label">Pilih Sesi</label>
             <div style="display:flex;gap:7px;" id="sesiBtns">
               <div class="sesi-btn on" onclick="selSesi(0)">
-                <div style="font-weight:600;">Sesi Nikah</div>
+                <div style="font-weight:600;">Sesi Nikah & Sanding</div>
                 <div style="font-size:0.55rem;margin-top:2px;opacity:0.75;">9:00 – 11:00 pagi</div>
               </div>
               <div class="sesi-btn" onclick="selSesi(1)">
@@ -1388,7 +1388,7 @@
             </div>
             <div class="sesi-info-box mt-8" id="sesiInfoBox">
               <div id="sesiInfoTxt" style="font-size:0.65rem;color:#ccc;line-height:1.5;">
-                Sesi Nikah — 9:00 pagi hingga 11:00 pagi. Pakaian formal.
+                Baju Tema Dark Purple (Ungu Gelap).
               </div>
             </div>
           </div>
@@ -2219,8 +2219,8 @@ function confirmBooking() {
 
 // ======== RSVP ========
 const sesiData = [
-  { label: 'Sesi Nikah', info: 'Sesi Nikah — 9:00 pagi hingga 11:00 pagi. Pakaian formal.' },
-  { label: 'Sesi Sanding', info: 'Sesi Sanding — 12:00 tengahari hingga 3:00 petang. Pakaian tema majlis.' }
+  { label: 'Sesi Nikah & Sanding', info: 'Sesi Nikah — 8:15 pagi hingga 4:00 petang.' },
+  { label: 'Sesi Sanding', info: 'Sesi Sanding — 11:00 tengahari hingga 4:00 petang.' }
 ];
 function selSesi(idx) {
   document.querySelectorAll('#sesiBtns .sesi-btn').forEach((b, i) => b.classList.toggle('on', i === idx));
