@@ -1087,13 +1087,29 @@
 <div id="introScreen">
   <div id="videoWrapper">
     <div id="videoLoadingBg"></div>
-    <video
+    <!--
+      ╔══════════════════════════════════════════════════════╗
+      ║  TUKAR GAMBAR HERO / INTRO SCREEN                   ║
+      ║  Gantikan URL di bawah dengan link gambar anda.     ║
+      ║                                                      ║
+      ║  Cara guna Google Drive:                            ║
+      ║  1. Upload gambar ke Google Drive                   ║
+      ║  2. Klik kanan → Share → Anyone with link → Copy   ║
+      ║  3. Ambil ID dari link:                             ║
+      ║     drive.google.com/file/d/[ID]/view               ║
+      ║  4. Guna format:                                    ║
+      ║     https://drive.google.com/uc?export=view&id=[ID] ║
+      ║                                                      ║
+      ║  Atau terus letak URL gambar dari hosting anda:     ║
+      ║     https://ecard.syazr.com/images/hero.jpg         ║
+      ╚══════════════════════════════════════════════════════╝
+    -->
+    <img
       id="bgVideo"
-      autoplay muted loop playsinline preload="auto"
-      oncanplay="videoReady()"
-      onerror="videoError()">
-      <source src="https://drive.google.com/uc?export=download&id=1oc8IRSqYiQnNiQJL6otESgGfTMIsqCkN" type="video/mp4">
-    </video>
+      src="LETAK_URL_GAMBAR_HERO_DI_SINI.jpg"
+      alt="Hero Background"
+      style="position:absolute;top:50%;left:50%;height:100%;width:auto;min-width:100%;transform:translate(-50%,-50%);object-fit:cover;"
+    >
   </div>
 
   <div id="videoOverlay"></div>
@@ -1573,9 +1589,33 @@
   <div style="padding:0 14px 14px;">
     <div class="qr-box">
       <div style="font-size:0.55rem;color:#444;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;">Imbas untuk transfer</div>
-      <div class="qr-placeholder">
-        <i class="ph-bold ph-qr-code" style="font-size:3rem;color:#2a2a2a;"></i>
-        <div style="font-size:0.55rem;color:#2a2a2a;text-align:center;line-height:1.4;">QR akan<br>dipaparkan<br>di sini</div>
+      <!--
+        ╔══════════════════════════════════════════════════════╗
+        ║  TUKAR GAMBAR QR CODE                               ║
+        ║  Gantikan URL di bawah dengan gambar QR anda.       ║
+        ║                                                      ║
+        ║  Cara guna Google Drive:                            ║
+        ║  1. Upload gambar QR ke Google Drive                ║
+        ║  2. Share → Anyone with link → Copy ID             ║
+        ║  3. Guna:                                           ║
+        ║     https://drive.google.com/uc?export=view&id=[ID] ║
+        ║                                                      ║
+        ║  Atau terus letak URL dari hosting anda:            ║
+        ║     https://ecard.syazr.com/images/qr.jpg           ║
+        ╚══════════════════════════════════════════════════════╝
+      -->
+      <div class="qr-placeholder" style="background:transparent;border:none;padding:0;">
+        <img
+          id="qrImage"
+          src="LETAK_URL_GAMBAR_QR_DI_SINI.jpg"
+          alt="QR DuitNow"
+          style="width:200px;height:200px;object-fit:contain;border-radius:8px;background:white;padding:8px;"
+          onerror="this.style.display='none';document.getElementById('qrFallback').style.display='flex';"
+        >
+        <div id="qrFallback" style="display:none;flex-direction:column;align-items:center;gap:6px;">
+          <i class="ph-bold ph-qr-code" style="font-size:3rem;color:#2a2a2a;"></i>
+          <div style="font-size:0.55rem;color:#2a2a2a;text-align:center;line-height:1.4;">QR tidak dapat<br>dimuatkan</div>
+        </div>
       </div>
       <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:white;margin-bottom:3px;">Dr. Syifa & Azhar</div>
       <div style="font-size:0.62rem;color:#555;">DuitNow · Bank Islam</div>
@@ -1592,11 +1632,11 @@
 
   <!-- Actions -->
   <div style="padding:0 14px;display:flex;gap:8px;">
-    <div class="duitnow-action">
+    <div class="duitnow-action" onclick="downloadQR()">
       <i class="ph-bold ph-download-simple"></i>
       <span>Simpan QR</span>
     </div>
-    <div class="duitnow-action">
+    <div class="duitnow-action" onclick="shareQR()">
       <i class="ph-bold ph-share-network"></i>
       <span>Kongsi</span>
     </div>
@@ -1767,18 +1807,26 @@ function gasPost(action, payload) {
   }).then(function(r) { return r.json(); });
 }
 
-// ======== VIDEO HANDLERS ========
+// ======== IMAGE/VIDEO HANDLERS ========
 function videoReady() {
+  // Panggil apabila gambar/video hero siap dimuatkan
   const loadingBg = document.getElementById('videoLoadingBg');
   if (loadingBg) loadingBg.style.opacity = '0';
-  const video = document.getElementById('bgVideo');
-  if (video) video.play().catch(() => {});
 }
 
 function videoError() {
+  // Panggil apabila gambar/video gagal dimuatkan
   const wrapper = document.getElementById('videoWrapper');
   if (wrapper) wrapper.style.background = 'linear-gradient(160deg, #0d0d0d 0%, #1a0000 100%)';
+  const bg = document.getElementById('videoLoadingBg');
+  if (bg) bg.style.opacity = '0';
 }
+
+// Pastikan loading bg hilang selepas 2s (fallback)
+setTimeout(() => {
+  const loadingBg = document.getElementById('videoLoadingBg');
+  if (loadingBg) loadingBg.style.opacity = '0';
+}, 2000);
 
 // ======== INTRO ========
 function initPetals() {
@@ -1822,8 +1870,6 @@ function initPetals() {
 function openInvitation() {
   const screen = document.getElementById('introScreen');
   screen.classList.add('hiding');
-  const video = document.getElementById('bgVideo');
-  if (video) setTimeout(() => video.pause(), 1200);
   setTimeout(() => { screen.style.display = 'none'; }, 1200);
 }
 
@@ -1884,6 +1930,35 @@ function switchPage(pageId) {
 
 function openMaps() {
   window.open('https://maps.app.goo.gl/7zeAkfxwcnPgHjC66', '_blank');
+}
+
+function downloadQR() {
+  const img = document.getElementById('qrImage');
+  if (!img || !img.src || img.src.includes('LETAK_URL')) {
+    alert('Sila kemaskini URL gambar QR dahulu.');
+    return;
+  }
+  const a = document.createElement('a');
+  a.href = img.src;
+  a.download = 'QR-DuitNow-Syifa-Azhar.jpg';
+  a.target = '_blank';
+  a.click();
+}
+
+function shareQR() {
+  const img = document.getElementById('qrImage');
+  const shareData = {
+    title: 'QR DuitNow — Syifa & Azhar',
+    text: 'Imbas QR ini untuk buat pembayaran DuitNow.',
+    url: img ? img.src : window.location.href
+  };
+  if (navigator.share) {
+    navigator.share(shareData).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(shareData.url).then(() => {
+      alert('Link QR telah disalin!');
+    });
+  }
 }
 
 function copyAccount() {
