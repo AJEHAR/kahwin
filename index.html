@@ -1197,8 +1197,8 @@
     <div class="hero-gradient"></div>
     <div class="hero-content">
       <div class="hero-tag">Walimatul Urus</div>
-      <div class="hero-title">Dr. Syifa & Azhar
-      <div class="hero-sub">Perkahwinan antara Doktor dan Guru
+      <div class="hero-title">Dr. Syifa &amp; Azhar</div>
+      <div class="hero-sub">Perkahwinan antara Doktor dan Guru</div>
       <div class="hero-meta">20 JUN 2026 · DE PALMA HOTEL, KUALA SELANGOR</div>
       <div style="display:flex;gap:8px;">
         <button class="btn-nf" onclick="switchPage('Info')">▶ RSVP Sekarang</button>
@@ -2246,7 +2246,7 @@ function loadWishlist() {
           </div>
         </div>
       </div>`).join('');
-  }).catch(() => {});
+  });
 }
 
 function openModal(id) {
@@ -2274,8 +2274,8 @@ function confirmBooking() {
 
 // ======== RSVP ========
 const sesiData = [
-  { label: 'Sesi Nikah', info: 'Sesi Nikah — 8:15 pagi hingga 4:00 petang.' },
-  { label: 'Sesi Sanding', info: 'Sesi Sanding — 11:00 tengahari hingga 4:00 petang.' }
+  { label: 'Sesi Nikah', info: 'Sesi Nikah — 8:15 pagi hingga 4:0 petang.' },
+  { label: 'Sesi Sanding', info: 'Sesi Sanding — 1100 tengahari hingga 400 petang.' }
 ];
 function selSesi(idx) {
   document.querySelectorAll('#sesiBtns .sesi-btn').forEach((b, i) => b.classList.toggle('on', i === idx));
@@ -2433,7 +2433,7 @@ function loadAdminGiftList() {
           <i class="ph-bold ph-trash"></i>
         </button>
       </div>`).join('');
-  }).catch(() => {});
+  });
 }
 
 function submitNewGift() {
