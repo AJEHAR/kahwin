@@ -374,7 +374,7 @@
 
     /* ===== HERO SECTION ===== */
     #heroSection {
-      height: 240px;
+      height: 280px;
       background: #0a0808;
       position: relative;
       display: flex;
@@ -384,17 +384,25 @@
       overflow: hidden;
     }
 
-    .hero-circles {
+    /* Gambar couple — portrait di sebelah kanan */
+    .hero-couple-img {
       position: absolute;
-      top: 14px; left: 50%;
-      transform: translateX(-50%);
+      top: 0; right: 0;
+      height: 100%;
+      width: 55%;
+      object-fit: cover;
+      object-position: top center;
       pointer-events: none;
+      display: block;
     }
 
+    /* Gradient kiri: teks jelas, gambar fade masuk dari kanan */
     .hero-gradient {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, #141414 18%, transparent 65%);
+      background:
+        linear-gradient(to right, #141414 30%, rgba(20,20,20,0.55) 65%, transparent 100%),
+        linear-gradient(to top,   #141414 15%, transparent 60%);
     }
 
     .hero-content { position: relative; z-index: 1; }
@@ -1106,7 +1114,7 @@
     -->
     <img
       id="bgVideo"
-      src="https://i.postimg.cc/ZqQ2DH2P/brown-maximalist-luxury-burgundy-floral-frame-design-template-6bf256efdf9063e39551180e03fe2a73-7bac5.png"
+      src="LETAK_URL_GAMBAR_HERO_DI_SINI.jpg"
       alt="Hero Background"
       style="position:absolute;top:50%;left:50%;height:100%;width:auto;min-width:100%;transform:translate(-50%,-50%);object-fit:cover;"
     >
@@ -1166,16 +1174,31 @@
 
   <!-- Hero Banner -->
   <div id="heroSection">
-    <svg class="hero-circles" width="130" height="130" viewBox="0 0 130 130" aria-hidden="true">
-      <circle cx="48" cy="65" r="38" fill="none" stroke="#E50914" stroke-width="5" opacity=".15"/>
-      <circle cx="82" cy="65" r="38" fill="none" stroke="#fff" stroke-width="5" opacity=".07"/>
-      <circle cx="65" cy="65" r="15" fill="#E50914" opacity=".05"/>
-    </svg>
+    <!--
+      ╔══════════════════════════════════════════════════════════╗
+      ║  TUKAR GAMBAR COUPLE DI SINI                            ║
+      ║  Gantikan src dengan URL gambar anda.                   ║
+      ║                                                          ║
+      ║  Saiz terbaik : 600 × 800px (portrait 3:4)             ║
+      ║  Format       : JPG / WEBP                              ║
+      ║  Tips         : Pastikan muka di bahagian atas gambar   ║
+      ║                 supaya tidak terpotong.                  ║
+      ║                                                          ║
+      ║  Google Drive : https://drive.google.com/uc?export=view ║
+      ║                 &id=ID_GAMBAR_ANDA                       ║
+      ╚══════════════════════════════════════════════════════════╝
+    -->
+    <img
+      class="hero-couple-img"
+      src="https://i.postimg.cc/tg28d2RV/Untitled-design.png"
+      alt="Dr. Syifa & Azhar"
+      onerror="this.style.display='none';"
+    >
     <div class="hero-gradient"></div>
     <div class="hero-content">
       <div class="hero-tag">Walimatul Urus</div>
-      <div class="hero-title">Dr. Syifa</div>
-      <div class="hero-sub">& Azhar</div>
+      <div class="hero-title">Dr. Syifa & Azhar
+      <div class="hero-sub">Perkahwinan antara Doktor dan Guru
       <div class="hero-meta">20 JUN 2026 · DE PALMA HOTEL, KUALA SELANGOR</div>
       <div style="display:flex;gap:8px;">
         <button class="btn-nf" onclick="switchPage('Info')">▶ RSVP Sekarang</button>
@@ -1367,7 +1390,7 @@
   <!-- RSVP -->
   <div style="padding:14px;">
     <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:white;margin-bottom:2px;">RSVP Kehadiran</div>
-    <div style="font-size:0.62rem;color:#555;margin-bottom:14px;">Sahkan kehadiran anda sebelum 10 Jun 2026</div>
+    <div style="font-size:0.62rem;color:#555;margin-bottom:14px;">Sahkan kehadiran anda sebelum 19Jun 2026</div>
 
     <div id="rsvpForm">
       <div class="nf-card2" style="border-radius:10px;padding:18px;">
@@ -1388,7 +1411,7 @@
             </div>
             <div class="sesi-info-box mt-8" id="sesiInfoBox">
               <div id="sesiInfoTxt" style="font-size:0.65rem;color:#ccc;line-height:1.5;">
-                Baju Tema Dark Purple (Ungu Gelap).
+                Tema Pakaian adalah Dark Purple atau Ungu Gelap
               </div>
             </div>
           </div>
@@ -1664,7 +1687,7 @@
     <div id="adminContent" class="hidden">
 
       <!-- Stats -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
         <div class="admin-stat">
           <div style="font-size:0.55rem;color:var(--nf-red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Total Pax</div>
           <div id="totalPax" style="font-size:2rem;font-weight:300;color:white;">0</div>
@@ -1672,6 +1695,38 @@
         <div class="admin-stat">
           <div style="font-size:0.55rem;color:var(--nf-red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Total POV</div>
           <div id="totalPov" style="font-size:2rem;font-weight:300;color:white;">0</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+        <div class="admin-stat">
+          <div style="font-size:0.55rem;color:#777;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Sesi Nikah</div>
+          <div id="statNikah" style="font-size:0.7rem;font-weight:500;color:#aaa;">-</div>
+        </div>
+        <div class="admin-stat">
+          <div style="font-size:0.55rem;color:#777;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Sesi Sanding</div>
+          <div id="statSanding" style="font-size:0.7rem;font-weight:500;color:#aaa;">-</div>
+        </div>
+      </div>
+
+      <!-- Refresh + Export -->
+      <div style="display:flex;gap:8px;margin-bottom:16px;">
+        <button onclick="refreshAdmin()"
+          style="flex:1;padding:9px;background:var(--nf-card);border:0.5px solid #2a2a2a;border-radius:6px;color:#777;font-size:0.65rem;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <i class="ph-bold ph-arrows-clockwise"></i> Refresh Data
+        </button>
+        <button onclick="exportRsvpCsv()"
+          style="flex:1;padding:9px;background:var(--nf-card);border:0.5px solid #2a2a2a;border-radius:6px;color:#777;font-size:0.65rem;font-family:'DM Sans',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;">
+          <i class="ph-bold ph-download-simple"></i> Export RSVP
+        </button>
+      </div>
+
+      <!-- RSVP List -->
+      <div style="margin-bottom:16px;">
+        <div style="font-size:0.65rem;font-weight:600;color:#777;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+          <i class="ph-bold ph-users" style="color:var(--nf-red);"></i> Senarai RSVP
+        </div>
+        <div id="adminRsvpList" style="max-height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:5px;">
+          <div style="text-align:center;padding:20px;font-size:0.65rem;color:#333;font-style:italic;">Memuatkan...</div>
         </div>
       </div>
 
@@ -2219,8 +2274,8 @@ function confirmBooking() {
 
 // ======== RSVP ========
 const sesiData = [
-  { label: 'Sesi Nikah & Sanding', info: 'Sesi Nikah — 8:15 pagi hingga 4:00 petang.' },
-  { label: 'Sesi Sanding', info: 'Sesi Sanding — 11:00 tengahari hingga 4:00 petang.' }
+  { label: 'Sesi Nikah', info: 'Sesi Nikah — 8:15 pagi hingga 4:0 petang. },
+  { label: 'Sesi Sanding', info: 'Sesi Sanding — 1100 tengahari hingga 400 petang. }
 ];
 function selSesi(idx) {
   document.querySelectorAll('#sesiBtns .sesi-btn').forEach((b, i) => b.classList.toggle('on', i === idx));
@@ -2282,21 +2337,69 @@ function checkAdmin() {
 }
 
 function loadAdminData() {
-  gasGet('getAdminStats').then(data => {
-    document.getElementById('totalPax').innerText = data.totalPax;
-    document.getElementById('totalPov').innerText = data.totalPov;
-    document.getElementById('adminPovList').innerHTML = data.povEntries.map(p => `
-      <div style="border-radius:6px;overflow:hidden;border:0.5px solid #2a2a2a;${p.status==='DELETED'?'opacity:0.3':''}">
-        <img src="${p.url}" style="width:100%;height:80px;object-fit:cover;display:block;">
-        <div style="padding:6px 8px;background:var(--nf-card);">
-          <div style="font-size:0.55rem;font-weight:600;color:white;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${p.name}</div>
-          ${p.status === 'APPROVED'
-            ? `<button onclick="confirmDeletePov('${p.fileId}')" style="width:100%;padding:4px;background:rgba(229,9,20,0.15);color:var(--nf-red);border:0.5px solid rgba(229,9,20,0.25);border-radius:4px;font-size:0.55rem;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em;">Padam</button>`
-            : `<div style="text-align:center;font-size:0.55rem;color:#444;text-transform:uppercase;letter-spacing:0.05em;">DIPADAM</div>`
-          }
-        </div>
-      </div>`).join('');
-  }).getAdminStats();
+  // Tunjuk loading state
+  document.getElementById('totalPax').innerText = '...';
+  document.getElementById('totalPov').innerText = '...';
+  const nikahEl   = document.getElementById('statNikah');
+  const sandingEl = document.getElementById('statSanding');
+  if (nikahEl)   nikahEl.innerText = '...';
+  if (sandingEl) sandingEl.innerText = '...';
+  document.getElementById('adminPovList').innerHTML =
+    '<div style="grid-column:span 2;text-align:center;padding:20px;font-size:0.65rem;color:#333;font-style:italic;">Memuatkan...</div>';
+
+  gasGet('getAdminStats')
+    .then(data => {
+      if (data.error) { alert('Ralat: ' + data.error); return; }
+
+      // Stats
+      document.getElementById('totalPax').innerText = data.totalPax ?? 0;
+      document.getElementById('totalPov').innerText = data.totalPov ?? 0;
+      if (nikahEl)   nikahEl.innerText = (data.paxNikah ?? 0) + ' pax (' + (data.countNikah ?? 0) + ' tetamu)';
+      if (sandingEl) sandingEl.innerText = (data.paxSanding ?? 0) + ' pax (' + (data.countSanding ?? 0) + ' tetamu)';
+
+      // RSVP list
+      const rsvpListEl = document.getElementById('adminRsvpList');
+      if (rsvpListEl && data.rsvpEntries && data.rsvpEntries.length) {
+        rsvpListEl.innerHTML = data.rsvpEntries.map(r => `
+          <div style="padding:8px 12px;background:var(--nf-card);border:0.5px solid #252525;border-radius:6px;display:flex;justify-content:space-between;align-items:center;gap:8px;">
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:0.7rem;font-weight:600;color:white;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${r.name}</div>
+              <div style="font-size:0.58rem;color:#555;margin-top:1px;">${r.phone} · ${r.sesi}</div>
+            </div>
+            <div style="text-align:right;flex-shrink:0;">
+              <div style="font-size:0.6rem;font-weight:600;color:${r.status==='Hadir'?'#5d9':'#e50914'};">${r.status}</div>
+              <div style="font-size:0.55rem;color:#444;">${r.pax} pax</div>
+            </div>
+          </div>`).join('');
+      } else if (rsvpListEl) {
+        rsvpListEl.innerHTML = '<div style="text-align:center;padding:20px;font-size:0.65rem;color:#333;font-style:italic;">Tiada RSVP lagi.</div>';
+      }
+
+      // POV list
+      const entries = data.povEntries || [];
+      if (!entries.length) {
+        document.getElementById('adminPovList').innerHTML =
+          '<div style="grid-column:span 2;text-align:center;padding:20px;font-size:0.65rem;color:#333;font-style:italic;">Tiada gambar POV.</div>';
+        return;
+      }
+      document.getElementById('adminPovList').innerHTML = entries.map(p => `
+        <div style="border-radius:6px;overflow:hidden;border:0.5px solid #2a2a2a;${p.status==='DELETED'?'opacity:0.3':''}">
+          <img src="${p.url}" style="width:100%;height:80px;object-fit:cover;display:block;"
+               onerror="this.style.background='#1e1e1e';this.style.height='40px';">
+          <div style="padding:6px 8px;background:var(--nf-card);">
+            <div style="font-size:0.55rem;font-weight:600;color:white;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${p.name}</div>
+            ${p.status === 'APPROVED'
+              ? `<button onclick="confirmDeletePov('${p.fileId}')" style="width:100%;padding:4px;background:rgba(229,9,20,0.15);color:var(--nf-red);border:0.5px solid rgba(229,9,20,0.25);border-radius:4px;font-size:0.55rem;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em;">Padam</button>`
+              : `<div style="text-align:center;font-size:0.55rem;color:#444;text-transform:uppercase;letter-spacing:0.05em;">DIPADAM</div>`
+            }
+          </div>
+        </div>`).join('');
+    })
+    .catch(err => {
+      alert('Ralat sambungan: ' + err);
+      document.getElementById('adminPovList').innerHTML =
+        '<div style="grid-column:span 2;text-align:center;padding:20px;font-size:0.65rem;color:#555;font-style:italic;">Gagal memuatkan data.</div>';
+    });
 }
 
 function confirmDeletePov(fileId) {
@@ -2360,6 +2463,38 @@ function deleteGift(id) {
     .then(res => {
       if (res.success) { loadAdminGiftList(); loadWishlist(); }
     }).catch(() => {});
+}
+
+// ======== ADMIN UTILS ========
+function refreshAdmin() {
+  loadAdminData();
+  loadAdminGiftList();
+}
+
+function exportRsvpCsv() {
+  // Ambil data dari DOM table
+  const rows = document.querySelectorAll('#adminRsvpList > div');
+  if (!rows.length) { alert('Tiada data RSVP untuk diexport.'); return; }
+
+  let csv = 'Nama,Telefon,Sesi,Status,Pax\n';
+  rows.forEach(row => {
+    const name  = row.querySelector('div > div:first-child')?.innerText?.trim() || '';
+    const sub   = row.querySelector('div > div:nth-child(2)')?.innerText?.trim() || '';
+    const parts = sub.split(' · ');
+    const phone = parts[0] || '';
+    const sesi  = parts[1] || '';
+    const status = row.querySelector('div:last-child > div:first-child')?.innerText?.trim() || '';
+    const pax   = (row.querySelector('div:last-child > div:last-child')?.innerText?.trim() || '').replace(' pax','');
+    csv += `"${name}","${phone}","${sesi}","${status}","${pax}"\n`;
+  });
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'RSVP_SyifaAzhar.csv';
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
 // ======== UTILITY ========
