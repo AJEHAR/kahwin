@@ -31,284 +31,1074 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* ===== SCROLLBAR ===== */
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--nf-bg); }
     ::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
 
-    /* INTRO SCREEN */
+    /* ===== INTRO SCREEN ===== */
     #introScreen {
-      position: fixed; inset: 0; z-index: 9999;
-      background: #000; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; overflow: hidden;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
-    #introScreen.hiding { animation: introHide 1.2s cubic-bezier(0.4,0,0.2,1) forwards; }
+
+    #introScreen.hiding {
+      animation: introHide 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
     @keyframes introHide {
-      0%   { opacity:1; transform:scale(1); }
-      100% { opacity:0; transform:scale(1.04); pointer-events:none; }
+      0%   { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.04); pointer-events: none; }
     }
-    #videoWrapper { position:absolute; inset:0; overflow:hidden; background:#000; }
+
+    #videoWrapper {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #000;
+    }
+
     #bgVideo {
-      position:absolute; top:50%; left:50%;
-      height:100%; width:auto; min-width:100%;
-      transform:translate(-50%,-50%); object-fit:cover;
+      position: absolute;
+      top: 50%; left: 50%;
+      height: 100%;
+      width: auto;
+      min-width: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
     }
+
     #videoLoadingBg {
-      position:absolute; inset:0;
-      background:linear-gradient(160deg,#0d0d0d 0%,#1a0000 100%);
-      z-index:1; transition:opacity 0.8s ease;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, #0d0d0d 0%, #1a0000 100%);
+      z-index: 1;
+      transition: opacity 0.8s ease;
     }
+
     #videoOverlay {
-      position:absolute; inset:0;
-      background:linear-gradient(to bottom,rgba(0,0,0,.55) 0%,rgba(0,0,0,.25) 40%,rgba(0,0,0,.75) 100%);
-      z-index:2;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.75) 100%);
+      z-index: 2;
     }
+
     #introContent {
-      position:relative; z-index:3; text-align:center; padding:2rem;
-      display:flex; flex-direction:column; align-items:center; gap:0.65rem;
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
     }
-    .intro-bismillah { font-family:'DM Sans',sans-serif; font-size:1.15rem; color:rgba(255,255,255,.7); opacity:0; animation:fadeUp 1s ease 0.5s forwards; }
-    .intro-label { font-family:'DM Sans',sans-serif; font-weight:500; font-size:0.6rem; letter-spacing:0.42em; color:var(--nf-red); text-transform:uppercase; opacity:0; animation:fadeUp 1s ease 0.9s forwards; }
-    .nf-divider-intro { width:60px; height:1px; background:linear-gradient(to right,transparent,var(--nf-red),transparent); opacity:0; animation:fadeUp 1s ease 1.1s forwards; }
-    .intro-names { font-family:'Playfair Display',serif; font-weight:700; font-size:clamp(2.8rem,12vw,4.8rem); color:white; line-height:1.05; opacity:0; animation:fadeUp 1s ease 1.2s forwards; text-shadow:0 2px 30px rgba(0,0,0,.7); }
-    .intro-ampersand { display:block; color:white; font-size:1em; font-style:normal; font-weight:700; line-height:1.05; }
-    .intro-date { font-family:'DM Sans',sans-serif; font-weight:400; font-size:0.7rem; letter-spacing:0.28em; color:rgba(255,255,255,.55); opacity:0; animation:fadeUp 1s ease 1.6s forwards; }
+
+    .intro-bismillah {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.7);
+      opacity: 0;
+      animation: fadeUp 1s ease 0.5s forwards;
+    }
+
+    .intro-label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.6rem;
+      letter-spacing: 0.42em;
+      color: var(--nf-red);
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.9s forwards;
+    }
+
+    .nf-divider-intro {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--nf-red), transparent);
+      opacity: 0;
+      animation: fadeUp 1s ease 1.1s forwards;
+    }
+
+    .intro-names {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 12vw, 4.8rem);
+      color: white;
+      line-height: 1.05;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.2s forwards;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.7);
+    }
+
+    .intro-ampersand {
+      display: block;
+      color: white;
+      font-size: 1em;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    .intro-date {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      color: rgba(255,255,255,0.55);
+      opacity: 0;
+      animation: fadeUp 1s ease 1.6s forwards;
+    }
+
     #btnBukaKad {
-      margin-top:.75rem; padding:.85rem 2.4rem; font-family:'DM Sans',sans-serif; font-size:.75rem; font-weight:600;
-      letter-spacing:.14em; text-transform:uppercase; color:white; background:var(--nf-red); border:none; border-radius:4px;
-      cursor:pointer; opacity:0; animation:fadeUp 1s ease 2s forwards; transition:background .2s,transform .15s;
+      margin-top: 0.75rem;
+      padding: 0.85rem 2.4rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--nf-red);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeUp 1s ease 2s forwards;
+      transition: background 0.2s, transform 0.15s;
     }
-    #btnBukaKad:hover { background:var(--nf-red-dk); }
-    #btnBukaKad:active { transform:scale(.97); }
+
+    #btnBukaKad:hover  { background: var(--nf-red-dk); }
+    #btnBukaKad:active { transform: scale(0.97); }
+
     #btnSkip {
-      position:absolute; bottom:8rem; right:1.5rem; z-index:4;
-      font-family:'DM Sans',sans-serif; font-size:.65rem; font-weight:500; letter-spacing:.1em;
-      color:rgba(255,255,255,.5); background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
-      backdrop-filter:blur(6px); padding:.4rem .9rem; border-radius:4px; cursor:pointer;
-      opacity:0; transition:opacity .6s ease; pointer-events:none;
+      position: absolute;
+      bottom: 8rem;
+      right: 1.5rem;
+      z-index: 4;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(6px);
+      padding: 0.4rem 0.9rem;
+      border-radius: 4px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
     }
-    #btnSkip.visible { opacity:1; pointer-events:all; }
-    #petalCanvas { position:absolute; inset:0; z-index:3; pointer-events:none; }
-    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
 
-    /* MAIN APP */
-    .page-section { display:none; padding-bottom:5rem; }
-    .page-section.active { display:block; }
+    #btnSkip.visible { opacity: 1; pointer-events: all; }
 
-    /* TOP NAV */
-    #topNav { background:var(--nf-bg); position:sticky; top:0; z-index:90; border-bottom:.5px solid var(--nf-border); }
-    #topNavInner { display:flex; align-items:center; justify-content:space-between; padding:10px 16px 5px; }
-    .nf-logo { font-family:'DM Sans',sans-serif; font-size:1.1rem; font-weight:600; letter-spacing:.32em; color:var(--nf-red); }
-    .nf-avatar { width:28px; height:28px; border-radius:4px; background:var(--nf-red); display:flex; align-items:center; justify-content:center; font-size:.65rem; font-weight:600; color:white; }
-    .nf-tabs { display:flex; overflow-x:auto; scrollbar-width:none; padding:0 14px; border-bottom:.5px solid #1e1e1e; }
-    .nf-tabs::-webkit-scrollbar { display:none; }
-    .nf-tab { padding:8px 14px; font-size:.7rem; font-weight:500; white-space:nowrap; cursor:pointer; color:var(--nf-dim); border-bottom:2px solid transparent; transition:all .2s; }
-    .nf-tab.active { color:white; border-bottom-color:var(--nf-red); }
+    #petalCanvas {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+    }
 
-    /* BOTTOM NAV */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== MAIN APP LAYOUT ===== */
+    .page-section { display: none; padding-bottom: 5rem; }
+    .page-section.active { display: block; }
+
+    /* ===== TOP NAV BAR ===== */
+    #topNav {
+      background: var(--nf-bg);
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      border-bottom: 0.5px solid var(--nf-border);
+    }
+
+    #topNavInner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 16px 5px;
+    }
+
+    .nf-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      color: var(--nf-red);
+    }
+
+    .nf-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      background: var(--nf-red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    /* Tab row */
+    .nf-tabs {
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 0 14px;
+      border-bottom: 0.5px solid #1e1e1e;
+    }
+    .nf-tabs::-webkit-scrollbar { display: none; }
+
+    .nf-tab {
+      padding: 8px 14px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      white-space: nowrap;
+      cursor: pointer;
+      color: var(--nf-dim);
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+    .nf-tab.active { color: white; border-bottom-color: var(--nf-red); }
+
+    /* ===== BOTTOM NAV ===== */
     #bottomNav {
-      position:fixed; bottom:0; left:0; right:0; z-index:80;
-      background:rgba(13,13,13,.97); border-top:.5px solid #1e1e1e;
-      display:flex; padding:7px 0 max(env(safe-area-inset-bottom),10px);
+      position: fixed;
+      bottom: 0;
+      left: 0; right: 0;
+      z-index: 80;
+      background: rgba(13,13,13,0.97);
+      border-top: 0.5px solid #1e1e1e;
+      display: flex;
+      padding: 7px 0 max(env(safe-area-inset-bottom), 10px);
     }
-    .nav-item { flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; cursor:pointer; opacity:.38; transition:opacity .2s; position:relative; }
-    .nav-item.active { opacity:1; }
-    .nav-item.active .nav-dot { width:4px; height:4px; background:var(--nf-red); border-radius:50%; display:block; margin-top:1px; }
-    .nav-dot { display:none; }
-    .nav-item i { font-size:1.25rem; }
-    .nav-item span { font-size:.55rem; font-weight:500; letter-spacing:.05em; }
-    .nav-pov-btn { flex:1; display:flex; flex-direction:column; align-items:center; gap:2px; cursor:pointer; position:relative; }
-    .pov-circle { width:42px; height:42px; background:var(--nf-red); border-radius:50%; display:flex; align-items:center; justify-content:center; margin-top:-18px; box-shadow:0 4px 20px rgba(229,9,20,.5); border:2.5px solid var(--nf-bg); transition:transform .15s; }
-    .pov-circle:active { transform:scale(.93); }
-    .pov-circle i { font-size:1.1rem; color:white; }
 
-    /* GEAR BTN */
-    #gearBtn { position:fixed; top:14px; right:16px; z-index:100; width:34px; height:34px; border-radius:50%; background:rgba(30,30,30,.9); border:.5px solid var(--nf-border); display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--nf-muted); font-size:1rem; transition:color .2s; }
-    #gearBtn:hover { color:white; }
+    .nav-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      cursor: pointer;
+      opacity: 0.38;
+      transition: opacity 0.2s;
+      position: relative;
+    }
+    .nav-item.active { opacity: 1; }
+    .nav-item.active .nav-dot {
+      width: 4px; height: 4px;
+      background: var(--nf-red);
+      border-radius: 50%;
+      display: block;
+      margin-top: 1px;
+    }
+    .nav-dot { display: none; }
+    .nav-item i { font-size: 1.25rem; }
+    .nav-item span { font-size: 0.55rem; font-weight: 500; letter-spacing: 0.05em; }
 
-    /* CARDS */
-    .nf-card { background:var(--nf-card); border:.5px solid #2a2a2a; border-radius:6px; }
-    .nf-card2 { background:var(--nf-card2); border:.5px solid #282828; border-radius:8px; }
+    .nav-pov-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      cursor: pointer;
+      position: relative;
+    }
 
-    /* HERO */
-    #heroSection { height:240px; background:#0a0808; position:relative; display:flex; flex-direction:column; justify-content:flex-end; padding:0 16px 16px; overflow:hidden; }
-    .hero-circles { position:absolute; top:14px; left:50%; transform:translateX(-50%); pointer-events:none; }
-    .hero-gradient { position:absolute; inset:0; background:linear-gradient(to top,#141414 18%,transparent 65%); }
-    .hero-content { position:relative; z-index:1; }
-    .hero-tag { font-size:.58rem; font-weight:500; color:var(--nf-red); letter-spacing:.2em; text-transform:uppercase; margin-bottom:4px; }
-    .hero-title { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; line-height:1.1; color:white; }
-    .hero-sub { font-family:'Playfair Display',serif; font-size:1.05rem; font-style:italic; color:var(--nf-muted); margin-bottom:4px; }
-    .hero-meta { font-size:.58rem; color:#555; letter-spacing:.05em; margin-bottom:12px; }
-    .btn-nf { background:var(--nf-red); color:white; border:none; padding:8px 16px; border-radius:4px; font-size:.7rem; font-weight:600; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background .2s,transform .15s; display:inline-flex; align-items:center; gap:6px; }
-    .btn-nf:hover { background:var(--nf-red-dk); }
-    .btn-nf:active { transform:scale(.97); }
-    .btn-nf-ghost { background:rgba(109,109,110,.4); color:#ddd; border:none; padding:8px 14px; border-radius:4px; font-size:.7rem; font-weight:500; font-family:'DM Sans',sans-serif; cursor:pointer; transition:background .2s; }
-    .btn-nf-ghost:hover { background:rgba(109,109,110,.6); }
+    .pov-circle {
+      width: 42px;
+      height: 42px;
+      background: var(--nf-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -18px;
+      box-shadow: 0 4px 20px rgba(229,9,20,0.5);
+      border: 2.5px solid var(--nf-bg);
+      transition: transform 0.15s;
+    }
+    .pov-circle:active { transform: scale(0.93); }
+    .pov-circle i { font-size: 1.1rem; color: white; }
 
-    /* QUICK CARDS */
-    .quick-row { display:flex; gap:6px; padding:0 14px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
-    .quick-row::-webkit-scrollbar { display:none; }
-    .quick-card { flex-shrink:0; width:76px; height:68px; border-radius:6px; background:var(--nf-card); border:.5px solid #2a2a2a; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; cursor:pointer; transition:border-color .2s,background .2s; }
-    .quick-card:hover { background:#252525; border-color:#333; }
-    .quick-card i { font-size:1.3rem; color:var(--nf-red); }
-    .quick-card span { font-size:.58rem; color:#bbb; }
+    /* ===== GEAR BTN ===== */
+    #gearBtn {
+      position: fixed;
+      top: 14px;
+      right: 16px;
+      z-index: 100;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(30,30,30,0.9);
+      border: 0.5px solid var(--nf-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--nf-muted);
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+    #gearBtn:hover { color: white; }
 
-    /* COUNTDOWN */
-    .countdown-wrap { background:var(--nf-card2); border-radius:8px; border:.5px solid #252525; padding:14px 12px; text-align:center; }
-    .cd-label { font-size:.55rem; color:#444; letter-spacing:.1em; text-transform:uppercase; margin-bottom:10px; }
-    .cd-row { display:flex; justify-content:center; align-items:flex-start; gap:8px; }
-    .cd-unit { text-align:center; }
-    .cd-num { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:white; line-height:1; }
-    .cd-name { font-size:.5rem; color:#3a3a3a; text-transform:uppercase; margin-top:3px; }
-    .cd-sep { font-size:1.5rem; color:#2a2a2a; padding-top:2px; }
+    /* ===== NF CARDS ===== */
+    .nf-card {
+      background: var(--nf-card);
+      border: 0.5px solid #2a2a2a;
+      border-radius: 6px;
+    }
 
-    /* MSG SCROLL */
-    .msg-scroll { display:flex; gap:8px; padding:0 14px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
-    .msg-scroll::-webkit-scrollbar { display:none; }
-    .msg-card { flex-shrink:0; width:140px; background:var(--nf-card); border:.5px solid #282828; border-radius:6px; padding:10px; }
+    .nf-card2 {
+      background: var(--nf-card2);
+      border: 0.5px solid #282828;
+      border-radius: 8px;
+    }
 
-    /* SECTION HEADERS */
-    .sec-header { font-size:.75rem; font-weight:600; color:white; padding:0 14px; margin-bottom:8px; }
+    /* ===== HERO SECTION ===== */
+    #heroSection {
+      height: 240px;
+      background: #0a0808;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 16px 16px;
+      overflow: hidden;
+    }
 
-    /* INPUTS */
-    .nf-label { display:block; font-size:.65rem; color:var(--nf-muted); margin-bottom:5px; font-weight:500; }
-    .nf-input { width:100%; background:var(--nf-card); border:.5px solid #3a3a3a; border-radius:6px; padding:10px 12px; color:white; font-size:.75rem; font-family:'DM Sans',sans-serif; outline:none; transition:border-color .2s; }
-    .nf-input:focus { border-color:#555; }
-    .nf-input::placeholder { color:#3a3a3a; }
-    .nf-textarea { width:100%; background:var(--nf-card); border:.5px solid #3a3a3a; border-radius:6px; padding:10px 12px; color:white; font-size:.75rem; font-family:'DM Sans',sans-serif; outline:none; resize:none; transition:border-color .2s; }
-    .nf-textarea:focus { border-color:#555; }
-    .nf-textarea::placeholder { color:#3a3a3a; }
-    .sesi-btn { flex:1; padding:10px 8px; border-radius:6px; text-align:center; font-size:.65rem; font-weight:500; cursor:pointer; transition:all .15s; border:.5px solid #3a3a3a; background:var(--nf-card); color:var(--nf-dim); }
-    .sesi-btn.on { background:var(--nf-red); color:white; border-color:var(--nf-red); }
-    .st-btn { flex:1; padding:9px 8px; border-radius:5px; text-align:center; font-size:.65rem; font-weight:500; cursor:pointer; border:.5px solid #3a3a3a; background:var(--nf-card); color:var(--nf-dim); transition:all .15s; }
-    .st-btn.on { background:var(--nf-red); color:white; border-color:var(--nf-red); }
-    .pax-btn { width:32px; height:32px; background:var(--nf-card); border:.5px solid #3a3a3a; border-radius:4px; color:white; font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .15s; }
-    .pax-btn:hover { background:#2a2a2a; }
+    .hero-circles {
+      position: absolute;
+      top: 14px; left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
 
-    /* GALLERY */
-    #galleryContainer { columns:2; column-gap:8px; padding:0 14px; }
-    .feed-card { break-inside:avoid; margin-bottom:8px; border-radius:6px; overflow:hidden; cursor:pointer; border:.5px solid #282828; background:var(--nf-card); transition:opacity .2s; }
-    .feed-card:active { opacity:.75; }
-    .feed-card-img img { width:100%; height:auto; display:block; }
-    .feed-card-info { padding:8px 10px; background:var(--nf-card); }
-    .feed-name { font-size:.6rem; font-weight:600; text-transform:uppercase; letter-spacing:.05em; color:var(--nf-red); margin-bottom:3px; }
-    .feed-msg { font-family:'Playfair Display',serif; font-size:.7rem; font-style:italic; color:#888; line-height:1.4; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-    .feed-text-only { padding:12px; }
-    .upload-zone { border:.5px dashed #3a3a3a; border-radius:8px; padding:18px 14px; text-align:center; cursor:pointer; background:#161616; transition:border-color .2s; }
-    .upload-zone:hover { border-color:var(--nf-red); }
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, #141414 18%, transparent 65%);
+    }
 
-    /* DUITNOW */
-    .qr-box { background:var(--nf-card2); border-radius:12px; border:.5px solid #282828; padding:20px 16px; text-align:center; }
-    .qr-placeholder { width:150px; height:150px; background:#0d0d0d; border-radius:8px; margin:0 auto 14px; display:flex; align-items:center; justify-content:center; border:.5px solid #2a2a2a; flex-direction:column; gap:6px; }
-    .duitnow-action { flex:1; background:var(--nf-card); border-radius:8px; padding:12px 10px; border:.5px solid #282828; text-align:center; cursor:pointer; transition:background .2s; }
-    .duitnow-action:hover { background:#252525; }
-    .duitnow-action i { font-size:1.2rem; color:var(--nf-red); display:block; margin-bottom:4px; }
-    .duitnow-action span { font-size:.55rem; color:#666; }
+    .hero-content { position: relative; z-index: 1; }
 
-    /* WISHLIST */
-    .gift-row { display:flex; align-items:flex-start; gap:10px; padding:12px 14px; background:var(--nf-card); border-bottom:.5px solid #252525; }
-    .gift-icon { width:40px; height:40px; background:rgba(229,9,20,.08); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .hero-tag {
+      font-size: 0.58rem;
+      font-weight: 500;
+      color: var(--nf-red);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
 
-    /* RSVP */
-    .sesi-info-box { background:rgba(229,9,20,.07); border-radius:6px; padding:10px 12px; border:.5px solid rgba(229,9,20,.2); }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.1;
+      color: white;
+    }
 
-    /* TIMELINE */
-    .timeline-item { position:relative; padding-left:2.2rem; }
-    .timeline-item::before { content:''; position:absolute; left:.65rem; top:2rem; bottom:-.8rem; width:.5px; background:linear-gradient(to bottom,var(--nf-red),transparent); }
-    .timeline-item:last-child::before { display:none; }
-    .timeline-dot { position:absolute; left:0; top:.4rem; width:1.35rem; height:1.35rem; background:var(--nf-bg); border:1.5px solid var(--nf-red); border-radius:50%; display:flex; align-items:center; justify-content:center; }
+    .hero-sub {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--nf-muted);
+      margin-bottom: 4px;
+    }
 
-    /* ADMIN */
-    .admin-stat { background:var(--nf-card); border:.5px solid #2a2a2a; border-radius:8px; padding:14px; text-align:center; }
+    .hero-meta {
+      font-size: 0.58rem;
+      color: #555;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
 
-    /* MODALS */
-    .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:70; display:flex; align-items:flex-end; }
-    @media(min-width:500px) { .modal-backdrop { align-items:center; justify-content:center; } }
-    .modal-sheet { width:100%; max-width:500px; background:#181818; border-top-left-radius:12px; border-top-right-radius:12px; padding:24px 20px; border:.5px solid #2a2a2a; }
-    @media(min-width:500px) { .modal-sheet { border-radius:10px; margin:0 16px; } }
-    .modal-title { font-family:'Playfair Display',serif; font-size:1.3rem; color:white; margin-bottom:4px; }
-    .modal-sub { font-size:.65rem; color:var(--nf-muted); margin-bottom:18px; }
-    #bookingModal { position:fixed; inset:0; background:rgba(0,0,0,.85); z-index:70; display:none; align-items:center; justify-content:center; padding:20px; }
-    #bookingModal.show { display:flex; }
-    .booking-inner { background:#181818; border:.5px solid #2a2a2a; border-radius:10px; padding:22px; width:100%; max-width:340px; }
-    #uploadModal { position:fixed; inset:0; background:rgba(0,0,0,.85); backdrop-filter:blur(4px); z-index:75; display:flex; align-items:flex-end; }
-    @media(min-width:500px) { #uploadModal { align-items:center; justify-content:center; } }
-    #modalContent { width:100%; max-width:500px; background:#181818; border-top-left-radius:12px; border-top-right-radius:12px; padding:24px 20px 32px; border:.5px solid #2a2a2a; transform:translateY(100%); transition:transform .3s cubic-bezier(0.4,0,0.2,1); }
-    @media(min-width:500px) { #modalContent { border-radius:10px; transform:translateY(0); opacity:0; transition:opacity .25s ease; } #modalContent.open { opacity:1; } }
-    #modalContent.open { transform:translateY(0); }
-    .img-drop { width:100%; height:160px; background:var(--nf-card); border-radius:8px; border:.5px dashed #3a3a3a; display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; overflow:hidden; transition:border-color .2s; }
-    .img-drop:hover { border-color:var(--nf-red); }
+    .btn-nf {
+      background: var(--nf-red);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-nf:hover  { background: var(--nf-red-dk); }
+    .btn-nf:active { transform: scale(0.97); }
 
-    /* FLOATING ADD BTN */
-    #floatingAddBtn { position:fixed; bottom:80px; right:16px; z-index:79; width:46px; height:46px; background:var(--nf-red); border-radius:50%; border:none; display:none; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 18px rgba(229,9,20,.4); transition:transform .15s; }
-    #floatingAddBtn:active { transform:scale(.93); }
-    #floatingAddBtn i { font-size:1.2rem; color:white; }
+    .btn-nf-ghost {
+      background: rgba(109,109,110,0.4);
+      color: #ddd;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-nf-ghost:hover { background: rgba(109,109,110,0.6); }
 
-    /* LIVE PULSE */
-    .live-dot { display:inline-block; width:6px; height:6px; background:var(--nf-red); border-radius:50%; margin-right:5px; animation:pulse 1.4s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.85)} }
+    /* ===== NAV QUICK CARDS ===== */
+    .quick-row {
+      display: flex;
+      gap: 6px;
+      padding: 0 14px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .quick-row::-webkit-scrollbar { display: none; }
 
-    /* SPIN LOADER */
-    .spin { display:inline-block; width:16px; height:16px; border:2px solid rgba(255,255,255,.25); border-top-color:white; border-radius:50%; animation:spin .7s linear infinite; }
-    @keyframes spin { to{transform:rotate(360deg)} }
+    .quick-card {
+      flex-shrink: 0;
+      width: 76px;
+      height: 68px;
+      border-radius: 6px;
+      background: var(--nf-card);
+      border: 0.5px solid #2a2a2a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .quick-card:hover { background: #252525; border-color: #333; }
+    .quick-card i { font-size: 1.3rem; color: var(--nf-red); }
+    .quick-card span { font-size: 0.58rem; color: #bbb; }
 
-    /* ARABIC TEXT */
-    .arabic-text { font-size:1.4rem; color:rgba(255,255,255,.7); direction:rtl; text-align:center; }
+    /* ===== COUNTDOWN ===== */
+    .countdown-wrap {
+      background: var(--nf-card2);
+      border-radius: 8px;
+      border: 0.5px solid #252525;
+      padding: 14px 12px;
+      text-align: center;
+    }
 
-    /* RED STRIPE */
-    .red-stripe { height:2px; background:var(--nf-red); width:100%; }
+    .cd-label {
+      font-size: 0.55rem;
+      color: #444;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
 
-    /* SECTION GAP */
-    .sec-gap { height:20px; }
+    .cd-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 8px;
+    }
 
-    /* HELPERS */
-    .line-clamp-3 { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
-    .px-14 { padding-left:14px; padding-right:14px; }
-    .py-8  { padding-top:8px; padding-bottom:8px; }
-    .gap-10 { gap:10px; }
-    .flex { display:flex; }
-    .flex-col { flex-direction:column; }
-    .items-center { align-items:center; }
-    .justify-between { justify-content:space-between; }
-    .gap-8 { gap:8px; }
-    .gap-12 { gap:12px; }
-    .gap-16 { gap:16px; }
-    .mt-2  { margin-top:2px; }
-    .mt-4  { margin-top:4px; }
-    .mt-8  { margin-top:8px; }
-    .mt-12 { margin-top:12px; }
-    .mt-16 { margin-top:16px; }
-    .mb-4  { margin-bottom:4px; }
-    .mb-8  { margin-bottom:8px; }
-    .mb-12 { margin-bottom:12px; }
-    .mb-16 { margin-bottom:16px; }
-    .w-full { width:100%; }
-    .text-center { text-align:center; }
-    .text-sm { font-size:.75rem; }
-    .text-xs { font-size:.65rem; }
-    .text-2xs { font-size:.58rem; }
-    .font-serif { font-family:'Playfair Display',serif; }
-    .italic { font-style:italic; }
-    .opacity-50 { opacity:.5; }
-    .relative { position:relative; }
-    .hidden { display:none !important; }
-    .block { display:block; }
-    .space-y-12 > * + * { margin-top:12px; }
-    .space-y-16 > * + * { margin-top:16px; }
-    .truncate { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .cd-unit { text-align: center; }
+
+    .cd-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+    }
+
+    .cd-name {
+      font-size: 0.5rem;
+      color: #3a3a3a;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .cd-sep {
+      font-size: 1.5rem;
+      color: #2a2a2a;
+      padding-top: 2px;
+    }
+
+    /* ===== MESSAGE SCROLL ===== */
+    .msg-scroll {
+      display: flex;
+      gap: 8px;
+      padding: 0 14px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .msg-scroll::-webkit-scrollbar { display: none; }
+
+    .msg-card {
+      flex-shrink: 0;
+      width: 140px;
+      background: var(--nf-card);
+      border: 0.5px solid #282828;
+      border-radius: 6px;
+      padding: 10px;
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    .sec-header {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: white;
+      padding: 0 14px;
+      margin-bottom: 8px;
+    }
+
+    /* ===== INPUT STYLES ===== */
+    .nf-label {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--nf-muted);
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .nf-input {
+      width: 100%;
+      background: var(--nf-card);
+      border: 0.5px solid #3a3a3a;
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: white;
+      font-size: 0.75rem;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .nf-input:focus  { border-color: #555; }
+    .nf-input::placeholder { color: #3a3a3a; }
+
+    .nf-select {
+      width: 100%;
+      background: var(--nf-card);
+      border: 0.5px solid #3a3a3a;
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: white;
+      font-size: 0.75rem;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .nf-textarea {
+      width: 100%;
+      background: var(--nf-card);
+      border: 0.5px solid #3a3a3a;
+      border-radius: 6px;
+      padding: 10px 12px;
+      color: white;
+      font-size: 0.75rem;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      resize: none;
+      transition: border-color 0.2s;
+    }
+    .nf-textarea:focus { border-color: #555; }
+    .nf-textarea::placeholder { color: #3a3a3a; }
+
+    /* Sesi / Status toggle buttons */
+    .sesi-btn {
+      flex: 1;
+      padding: 10px 8px;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 0.65rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      border: 0.5px solid #3a3a3a;
+      background: var(--nf-card);
+      color: var(--nf-dim);
+    }
+    .sesi-btn.on { background: var(--nf-red); color: white; border-color: var(--nf-red); }
+
+    .st-btn {
+      flex: 1;
+      padding: 9px 8px;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 0.65rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 0.5px solid #3a3a3a;
+      background: var(--nf-card);
+      color: var(--nf-dim);
+      transition: all 0.15s;
+    }
+    .st-btn.on { background: var(--nf-red); color: white; border-color: var(--nf-red); }
+
+    /* PAX counter */
+    .pax-btn {
+      width: 32px; height: 32px;
+      background: var(--nf-card);
+      border: 0.5px solid #3a3a3a;
+      border-radius: 4px;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .pax-btn:hover { background: #2a2a2a; }
+
+    /* ===== GALLERY ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      padding: 0 14px;
+    }
+
+    .gallery-placeholder {
+      aspect-ratio: 1;
+      background: var(--nf-card);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.5px solid #282828;
+    }
+
+    /* Live feed masonry */
+    #galleryContainer {
+      columns: 2;
+      column-gap: 8px;
+      padding: 0 14px;
+    }
+
+    .feed-card {
+      break-inside: avoid;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 0.5px solid #282828;
+      background: var(--nf-card);
+      transition: opacity 0.2s;
+    }
+    .feed-card:active { opacity: 0.75; }
+
+    .feed-card-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .feed-card-info {
+      padding: 8px 10px;
+      background: var(--nf-card);
+    }
+
+    .feed-name {
+      font-size: 0.6rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--nf-red);
+      margin-bottom: 3px;
+    }
+
+    .feed-msg {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.7rem;
+      font-style: italic;
+      color: #888;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .feed-text-only {
+      padding: 12px;
+    }
+
+    /* Upload drop zone */
+    .upload-zone {
+      border: 0.5px dashed #3a3a3a;
+      border-radius: 8px;
+      padding: 18px 14px;
+      text-align: center;
+      cursor: pointer;
+      background: #161616;
+      transition: border-color 0.2s;
+    }
+    .upload-zone:hover { border-color: var(--nf-red); }
+
+    /* ===== DuitNow ===== */
+    .qr-box {
+      background: var(--nf-card2);
+      border-radius: 12px;
+      border: 0.5px solid #282828;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .qr-placeholder {
+      width: 150px; height: 150px;
+      background: #0d0d0d;
+      border-radius: 8px;
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.5px solid #2a2a2a;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .duitnow-action {
+      flex: 1;
+      background: var(--nf-card);
+      border-radius: 8px;
+      padding: 12px 10px;
+      border: 0.5px solid #282828;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .duitnow-action:hover { background: #252525; }
+    .duitnow-action i { font-size: 1.2rem; color: var(--nf-red); display: block; margin-bottom: 4px; }
+    .duitnow-action span { font-size: 0.55rem; color: #666; }
+
+    /* ===== WISHLIST ===== */
+    .gift-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      background: var(--nf-card);
+      border-bottom: 0.5px solid #252525;
+    }
+
+    .gift-icon {
+      width: 40px; height: 40px;
+      background: rgba(229,9,20,0.08);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* ===== RSVP SESI INFO ===== */
+    .sesi-info-box {
+      background: rgba(229,9,20,0.07);
+      border-radius: 6px;
+      padding: 10px 12px;
+      border: 0.5px solid rgba(229,9,20,0.2);
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline-item {
+      position: relative;
+      padding-left: 2.2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0.65rem;
+      top: 2rem;
+      bottom: -0.8rem;
+      width: 0.5px;
+      background: linear-gradient(to bottom, var(--nf-red), transparent);
+    }
+    .timeline-item:last-child::before { display: none; }
+
+    .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 0.4rem;
+      width: 1.35rem; height: 1.35rem;
+      background: var(--nf-bg);
+      border: 1.5px solid var(--nf-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ===== ADMIN ===== */
+    .admin-stat {
+      background: var(--nf-card);
+      border: 0.5px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    /* ===== MODALS ===== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 70;
+      display: flex;
+      align-items: flex-end;
+    }
+    @media(min-width:500px) { .modal-backdrop { align-items: center; justify-content: center; } }
+
+    .modal-sheet {
+      width: 100%;
+      max-width: 500px;
+      background: #181818;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      padding: 24px 20px;
+      border: 0.5px solid #2a2a2a;
+    }
+    @media(min-width:500px) {
+      .modal-sheet {
+        border-radius: 10px;
+        margin: 0 16px;
+      }
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .modal-sub {
+      font-size: 0.65rem;
+      color: var(--nf-muted);
+      margin-bottom: 18px;
+    }
+
+    /* Booking modal */
+    #bookingModal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 70;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    #bookingModal.show { display: flex; }
+
+    .booking-inner {
+      background: #181818;
+      border: 0.5px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 22px;
+      width: 100%;
+      max-width: 340px;
+    }
+
+    /* ===== UPLOAD MODAL ===== */
+    #uploadModal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(4px);
+      z-index: 75;
+      display: flex;
+      align-items: flex-end;
+    }
+    @media(min-width:500px) { #uploadModal { align-items: center; justify-content: center; } }
+
+    #modalContent {
+      width: 100%;
+      max-width: 500px;
+      background: #181818;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      padding: 24px 20px 32px;
+      border: 0.5px solid #2a2a2a;
+      transform: translateY(100%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @media(min-width:500px) {
+      #modalContent {
+        border-radius: 10px;
+        transform: translateY(0);
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+      #modalContent.open { opacity: 1; }
+    }
+    #modalContent.open { transform: translateY(0); }
+
+    /* upload image preview area */
+    .img-drop {
+      width: 100%;
+      height: 160px;
+      background: var(--nf-card);
+      border-radius: 8px;
+      border: 0.5px dashed #3a3a3a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .img-drop:hover { border-color: var(--nf-red); }
+
+    /* ===== FLOATING ADD BTN ===== */
+    #floatingAddBtn {
+      position: fixed;
+      bottom: 80px;
+      right: 16px;
+      z-index: 79;
+      width: 46px; height: 46px;
+      background: var(--nf-red);
+      border-radius: 50%;
+      border: none;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 18px rgba(229,9,20,0.4);
+      transition: transform 0.15s;
+    }
+    #floatingAddBtn:active { transform: scale(0.93); }
+    #floatingAddBtn i { font-size: 1.2rem; color: white; }
+
+    /* ===== LIVE PULSE ===== */
+    .live-dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      background: var(--nf-red);
+      border-radius: 50%;
+      margin-right: 5px;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:0.4; transform:scale(0.85); }
+    }
+
+    /* ===== SPIN LOADER ===== */
+    .spin {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.25);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ===== BISMILLAH ARABIC HEADER ===== */
+    .arabic-text {
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.7);
+      direction: rtl;
+      text-align: center;
+    }
+
+    /* ===== RED TOP STRIPE ===== */
+    .red-stripe {
+      height: 2px;
+      background: var(--nf-red);
+      width: 100%;
+    }
+
+    /* ===== SECTION GAP ===== */
+    .sec-gap { height: 20px; }
+
+    /* truncated text */
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ===== PADDING HELPERS ===== */
+    .px-14 { padding-left: 14px; padding-right: 14px; }
+    .py-8  { padding-top: 8px; padding-bottom: 8px; }
+    .gap-10 { gap: 10px; }
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .gap-8 { gap: 8px; }
+    .gap-12 { gap: 12px; }
+    .gap-16 { gap: 16px; }
+    .mt-2  { margin-top: 2px; }
+    .mt-4  { margin-top: 4px; }
+    .mt-8  { margin-top: 8px; }
+    .mt-12 { margin-top: 12px; }
+    .mt-16 { margin-top: 16px; }
+    .mb-4  { margin-bottom: 4px; }
+    .mb-8  { margin-bottom: 8px; }
+    .mb-12 { margin-bottom: 12px; }
+    .mb-16 { margin-bottom: 16px; }
+    .w-full { width: 100%; }
+    .text-center { text-align: center; }
+    .text-sm { font-size: 0.75rem; }
+    .text-xs { font-size: 0.65rem; }
+    .text-2xs { font-size: 0.58rem; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .italic { font-style: italic; }
+    .opacity-50 { opacity: 0.5; }
+    .relative { position: relative; }
+    .hidden { display: none !important; }
+    .block { display: block; }
+    .space-y-12 > * + * { margin-top: 12px; }
+    .space-y-16 > * + * { margin-top: 16px; }
+    .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   </style>
 </head>
 <body>
 
-<!-- INTRO SCREEN -->
+<!-- ======================================= -->
+<!-- =========== INTRO SCREEN ============== -->
+<!-- ======================================= -->
 <div id="introScreen">
   <div id="videoWrapper">
     <div id="videoLoadingBg"></div>
-    <video id="bgVideo" autoplay muted loop playsinline preload="auto" oncanplay="videoReady()" onerror="videoError()">
+    <video
+      id="bgVideo"
+      autoplay muted loop playsinline preload="auto"
+      oncanplay="videoReady()"
+      onerror="videoError()">
       <source src="https://drive.google.com/uc?export=download&id=1oc8IRSqYiQnNiQJL6otESgGfTMIsqCkN" type="video/mp4">
     </video>
   </div>
+
   <div id="videoOverlay"></div>
   <canvas id="petalCanvas"></canvas>
+
   <div id="introContent">
     <p class="intro-bismillah" dir="rtl">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
     <p class="intro-label">Majlis Walimatulurus</p>
@@ -321,15 +1111,20 @@
     <div class="nf-divider-intro" style="animation-delay:1.9s;opacity:0;animation:fadeUp 1s ease 1.9s forwards;"></div>
     <button id="btnBukaKad" onclick="openInvitation()">▶&nbsp; Buka Kad</button>
   </div>
+
   <button id="btnSkip" onclick="openInvitation()">Skip ›</button>
 </div>
 
-<!-- GEAR BUTTON -->
+<!-- ======================================= -->
+<!-- ============= GEAR BUTTON ============= -->
+<!-- ======================================= -->
 <div id="gearBtn" onclick="checkAdmin()">
   <i class="ph-bold ph-gear-six"></i>
 </div>
 
-<!-- TOP NAV -->
+<!-- ======================================= -->
+<!-- ============== TOP NAV ================ -->
+<!-- ======================================= -->
 <div id="topNav">
   <div id="topNavInner">
     <div class="nf-logo">S &amp; A</div>
@@ -338,16 +1133,22 @@
       <div class="nf-avatar">SA</div>
     </div>
   </div>
+  <!-- Tab navigation — updates on page switch -->
   <div class="nf-tabs" id="mainTabs">
     <div class="nf-tab active" onclick="switchPage('Index')" data-page="Index">Utama</div>
     <div class="nf-tab" onclick="switchPage('Pov')" data-page="Pov">POV</div>
     <div class="nf-tab" onclick="switchPage('Info')" data-page="Info">RSVP</div>
     <div class="nf-tab" onclick="switchPage('DuitNow')" data-page="DuitNow">DuitNow</div>
+    <!-- Hadiah tab removed -->
   </div>
 </div>
 
-<!-- HOME PAGE -->
+<!-- ======================================= -->
+<!-- ============= HOME PAGE =============== -->
+<!-- ======================================= -->
 <div id="page-Index" class="page-section active">
+
+  <!-- Hero Banner -->
   <div id="heroSection">
     <svg class="hero-circles" width="130" height="130" viewBox="0 0 130 130" aria-hidden="true">
       <circle cx="48" cy="65" r="38" fill="none" stroke="#E50914" stroke-width="5" opacity=".15"/>
@@ -357,8 +1158,8 @@
     <div class="hero-gradient"></div>
     <div class="hero-content">
       <div class="hero-tag">Walimatul Urus</div>
-      <div class="hero-title">Dr. Syifa & Azhar</div>
-      <div class="hero-sub">Cerita Perkahwinan</div>
+      <div class="hero-title">Dr. Syifa</div>
+      <div class="hero-sub">& Azhar</div>
       <div class="hero-meta">20 JUN 2026 · DE PALMA HOTEL, KUALA SELANGOR</div>
       <div style="display:flex;gap:8px;">
         <button class="btn-nf" onclick="switchPage('Info')">▶ RSVP Sekarang</button>
@@ -367,10 +1168,12 @@
     </div>
   </div>
 
+  <!-- Bismillah strip -->
   <div style="padding:14px 14px 4px;text-align:center;">
     <p class="arabic-text">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
   </div>
 
+  <!-- Navigasi Quick Cards -->
   <div class="sec-gap"></div>
   <div class="sec-header">Navigasi</div>
   <div class="quick-row">
@@ -386,74 +1189,94 @@
       <i class="ph-bold ph-qr-code"></i>
       <span>DuitNow</span>
     </div>
+    <!-- Hadiah quick card removed -->
     <div class="quick-card" onclick="openMaps()">
       <i class="ph-bold ph-map-pin"></i>
       <span>Lokasi</span>
     </div>
   </div>
 
+  <!-- Countdown -->
   <div class="sec-gap"></div>
   <div style="padding:0 14px;">
     <div class="countdown-wrap">
       <div class="cd-label">Masa Menuju Majlis</div>
       <div class="cd-row">
-        <div class="cd-unit"><div class="cd-num" id="days">--</div><div class="cd-name">Hari</div></div>
+        <div class="cd-unit">
+          <div class="cd-num" id="days">--</div>
+          <div class="cd-name">Hari</div>
+        </div>
         <div class="cd-sep">:</div>
-        <div class="cd-unit"><div class="cd-num" id="hours">--</div><div class="cd-name">Jam</div></div>
+        <div class="cd-unit">
+          <div class="cd-num" id="hours">--</div>
+          <div class="cd-name">Jam</div>
+        </div>
         <div class="cd-sep">:</div>
-        <div class="cd-unit"><div class="cd-num" id="minutes">--</div><div class="cd-name">Minit</div></div>
+        <div class="cd-unit">
+          <div class="cd-num" id="minutes">--</div>
+          <div class="cd-name">Minit</div>
+        </div>
         <div class="cd-sep">:</div>
-        <div class="cd-unit"><div class="cd-num" id="seconds">--</div><div class="cd-name">Saat</div></div>
+        <div class="cd-unit">
+          <div class="cd-num" id="seconds">--</div>
+          <div class="cd-name">Saat</div>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- POV Terbaru -->
   <div class="sec-gap"></div>
   <div style="display:flex;justify-content:space-between;align-items:center;padding:0 14px;margin-bottom:8px;">
     <div class="sec-header" style="padding:0;margin:0;">POV Terbaru</div>
-    <span onclick="switchPage('Pov')" style="font-size:.65rem;color:#888;cursor:pointer;">Lihat semua ›</span>
+    <span onclick="switchPage('Pov')" style="font-size:0.65rem;color:#888;cursor:pointer;">Lihat semua ›</span>
   </div>
   <div class="msg-scroll" id="homeRecentPov">
     <div class="msg-card" style="display:flex;align-items:center;justify-content:center;min-height:80px;">
-      <span style="font-size:.6rem;color:#333;font-style:italic;">Memuatkan...</span>
+      <span style="font-size:0.6rem;color:#333;font-style:italic;">Memuatkan...</span>
     </div>
   </div>
 
+  <!-- Jemputan -->
   <div class="sec-gap"></div>
   <div style="padding:0 14px;">
     <div class="nf-card2" style="padding:16px;border-radius:8px;">
-      <div style="font-size:.58rem;color:var(--nf-red);letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px;">Jemputan Khas</div>
-      <p style="font-family:'Playfair Display',serif;font-size:.95rem;font-style:italic;color:#bbb;line-height:1.6;margin-bottom:12px;">
+      <div style="font-size:0.58rem;color:var(--nf-red);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px;">Jemputan Khas</div>
+      <p style="font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;color:#bbb;line-height:1.6;margin-bottom:12px;">
         Dengan penuh takzim, kami menjemput Tuan/Puan hadir ke majlis perkahwinan kami.
       </p>
       <div style="display:flex;gap:8px;">
-        <a href="https://maps.app.goo.gl/7zeAkfxwcnPgHjC66" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border-radius:4px;font-size:.62rem;font-weight:500;color:#bbb;background:var(--nf-card);border:.5px solid #2a2a2a;text-decoration:none;">
+        <a href="https://maps.app.goo.gl/7zeAkfxwcnPgHjC66" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border-radius:4px;font-size:0.62rem;font-weight:500;color:#bbb;background:var(--nf-card);border:0.5px solid #2a2a2a;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#252525'" onmouseout="this.style.background='var(--nf-card)'">
           <i class="ph-bold ph-map-pin" style="color:var(--nf-red);"></i> Google Maps
         </a>
-        <a href="https://waze.com/ul/hw0xgpcc4u" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border-radius:4px;font-size:.62rem;font-weight:500;color:#bbb;background:var(--nf-card);border:.5px solid #2a2a2a;text-decoration:none;">
+        <a href="https://waze.com/ul/hw0xgpcc4u" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:7px 12px;border-radius:4px;font-size:0.62rem;font-weight:500;color:#bbb;background:var(--nf-card);border:0.5px solid #2a2a2a;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#252525'" onmouseout="this.style.background='var(--nf-card)'">
           <i class="ph-bold ph-navigation-arrow" style="color:var(--nf-red);"></i> Waze
         </a>
       </div>
     </div>
   </div>
+
 </div>
 
-<!-- POV PAGE -->
+<!-- ======================================= -->
+<!-- ============== POV PAGE =============== -->
+<!-- ======================================= -->
 <div id="page-Pov" class="page-section">
+
   <div style="padding:14px 14px 8px;display:flex;align-items:center;justify-content:space-between;">
     <div>
       <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:white;">Galeri POV</div>
-      <div style="font-size:.62rem;color:#555;margin-top:2px;">Kongsikan kenangan bersama kami</div>
+      <div style="font-size:0.62rem;color:#555;margin-top:2px;">Kongsikan kenangan bersama kami</div>
     </div>
-    <div style="display:flex;align-items:center;gap:5px;font-size:.58rem;color:#555;">
+    <div style="display:flex;align-items:center;gap:5px;font-size:0.58rem;color:#555;">
       <span class="live-dot"></span> Live
     </div>
   </div>
 
   <div class="upload-zone" style="margin:0 14px 14px;" onclick="openUploadModal()">
     <i class="ph-bold ph-cloud-arrow-up" style="font-size:1.6rem;color:var(--nf-red);display:block;margin-bottom:5px;"></i>
-    <div style="font-size:.65rem;color:#555;">Tekan untuk muat naik gambar</div>
-    <div style="font-size:.58rem;color:#3a3a3a;margin-top:2px;">Boleh serta ucapan sekali</div>
+    <div style="font-size:0.65rem;color:#555;">Tekan untuk muat naik gambar</div>
+    <div style="font-size:0.58rem;color:#3a3a3a;margin-top:2px;">Boleh serta ucapan sekali</div>
   </div>
 
   <div id="galleryContainer"></div>
@@ -470,6 +1293,7 @@
           <i class="ph-bold ph-x"></i>
         </button>
       </div>
+
       <div class="space-y-12">
         <div>
           <label class="nf-label">Nama Anda</label>
@@ -483,70 +1307,89 @@
           <div class="img-drop" onclick="document.getElementById('imageInput').click()">
             <div id="previewPlaceholder" style="display:flex;flex-direction:column;align-items:center;gap:6px;">
               <i class="ph-bold ph-camera-plus" style="font-size:2rem;color:#333;"></i>
-              <span style="font-size:.62rem;color:#444;">Ambil atau Pilih Gambar</span>
+              <span style="font-size:0.62rem;color:#444;">Ambil atau Pilih Gambar</span>
             </div>
             <img id="imagePreview" class="hidden" style="width:100%;height:100%;object-fit:cover;">
             <input type="file" id="imageInput" accept="image/*" class="hidden" onchange="handleFilePreview(this)">
           </div>
         </div>
-        <button onclick="handleUpload()" id="submitBtn" class="btn-nf w-full" style="padding:12px;border-radius:6px;justify-content:center;font-size:.75rem;">
+        <button onclick="handleUpload()" id="submitBtn"
+                class="btn-nf w-full" style="padding:12px;border-radius:6px;justify-content:center;font-size:0.75rem;">
           <span id="btnText">Hantar Moment</span>
           <div id="loader" class="spin hidden" style="margin-left:8px;"></div>
         </button>
       </div>
     </div>
   </div>
+
 </div>
 
-<!-- HADIAH PAGE (hidden) -->
+<!-- ======================================= -->
+<!-- ============= HADIAH PAGE ============= -->
+<!-- ======================================= HIDDEN/DISABLED -->
 <div id="page-Hadiah" class="page-section" style="display:none !important;">
+
   <div style="padding:14px 14px 8px;">
     <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:white;">Hadiah Pengantin</div>
-    <div style="font-size:.62rem;color:#555;margin-top:2px;">Cadangan pemberian hadiah kepada pengantin</div>
+    <div style="font-size:0.62rem;color:#555;margin-top:2px;">Cadangan pemberian hadiah kepada pengantin</div>
   </div>
+
   <div id="wishlistContainer">
     <div style="padding:40px 14px;text-align:center;">
       <div class="spin" style="margin:0 auto 10px;"></div>
-      <div style="font-size:.65rem;color:#333;">Memuatkan...</div>
+      <div style="font-size:0.65rem;color:#333;">Memuatkan...</div>
     </div>
   </div>
+
 </div>
 
-<!-- INFO / RSVP PAGE -->
+<!-- ======================================= -->
+<!-- ============= INFO PAGE =============== -->
+<!-- ======================================= -->
 <div id="page-Info" class="page-section">
+
+  <!-- RSVP -->
   <div style="padding:14px;">
     <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:white;margin-bottom:2px;">RSVP Kehadiran</div>
-    <div style="font-size:.62rem;color:#555;margin-bottom:14px;">Sahkan kehadiran anda sebelum 18 Jun 2026</div>
+    <div style="font-size:0.62rem;color:#555;margin-bottom:14px;">Sahkan kehadiran anda sebelum 10 Jun 2026</div>
 
     <div id="rsvpForm">
       <div class="nf-card2" style="border-radius:10px;padding:18px;">
         <div class="space-y-12">
+
+          <!-- Sesi -->
           <div>
             <label class="nf-label">Pilih Sesi</label>
             <div style="display:flex;gap:7px;" id="sesiBtns">
               <div class="sesi-btn on" onclick="selSesi(0)">
-                <div style="font-weight:600;">Sesi Nikah &amp; Sanding</div>
-                <div style="font-size:.55rem;margin-top:2px;opacity:.75;"></div>
+                <div style="font-weight:600;">Sesi Nikah</div>
+                <div style="font-size:0.55rem;margin-top:2px;opacity:0.75;">9:00 – 11:00 pagi</div>
               </div>
               <div class="sesi-btn" onclick="selSesi(1)">
                 <div style="font-weight:600;">Sesi Sanding</div>
-                <div style="font-size:.55rem;margin-top:2px;opacity:.75;"></div>
+                <div style="font-size:0.55rem;margin-top:2px;opacity:0.75;">12:00 – 3:00 ptg</div>
               </div>
             </div>
             <div class="sesi-info-box mt-8" id="sesiInfoBox">
-              <div id="sesiInfoTxt" style="font-size:.65rem;color:#ccc;line-height:1.5;">
-                Tema Pakaian adalah Ungu gelap atau Dark Purple.
+              <div id="sesiInfoTxt" style="font-size:0.65rem;color:#ccc;line-height:1.5;">
+                Sesi Nikah — 9:00 pagi hingga 11:00 pagi. Pakaian formal.
               </div>
             </div>
           </div>
+
+          <!-- Nama -->
           <div>
             <label class="nf-label">Nama Penuh</label>
             <input type="text" id="rsvpName" placeholder="Ahmad bin Ali" class="nf-input">
           </div>
+
+          <!-- Telefon -->
           <div>
             <label class="nf-label">No. Telefon</label>
             <input type="tel" id="rsvpPhone" placeholder="01X-XXXXXXX" class="nf-input">
           </div>
+
+          <!-- Status -->
           <div>
             <label class="nf-label">Kehadiran</label>
             <div style="display:flex;gap:7px;" id="stBtns">
@@ -554,6 +1397,8 @@
               <div class="st-btn" onclick="selSt(1)">Tidak Hadir</div>
             </div>
           </div>
+
+          <!-- PAX -->
           <div>
             <label class="nf-label">Bilangan Tetamu</label>
             <div style="display:flex;align-items:center;gap:14px;">
@@ -562,7 +1407,9 @@
               <button class="pax-btn" onclick="chP(1)">+</button>
             </div>
           </div>
-          <button onclick="submitRsvp()" id="rsvpBtn" class="btn-nf w-full" style="padding:12px;border-radius:6px;justify-content:center;font-size:.75rem;margin-top:4px;">
+
+          <button onclick="submitRsvp()" id="rsvpBtn"
+                  class="btn-nf w-full" style="padding:12px;border-radius:6px;justify-content:center;font-size:0.75rem;margin-top:4px;">
             <span id="rsvpBtnText">Hantar RSVP</span>
             <div id="rsvpLoader" class="spin hidden" style="margin-left:8px;"></div>
           </button>
@@ -570,95 +1417,180 @@
       </div>
     </div>
 
+    <!-- Success -->
     <div id="rsvpSuccess" class="hidden" style="text-align:center;padding:32px 0;">
-      <div style="width:56px;height:56px;background:rgba(229,9,20,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+      <div style="width:56px;height:56px;background:rgba(229,9,20,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
         <i class="ph-bold ph-check-circle" style="font-size:1.8rem;color:var(--nf-red);"></i>
       </div>
       <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:white;margin-bottom:6px;">Terima Kasih!</div>
-      <p style="font-size:.7rem;color:#666;line-height:1.6;">RSVP anda telah selamat diterima.<br>Jumpa anda di majlis nanti!</p>
+      <p style="font-size:0.7rem;color:#666;line-height:1.6;">RSVP anda telah selamat diterima.<br>Jumpa anda di majlis nanti!</p>
     </div>
   </div>
 
+  <!-- Red divider -->
   <div class="red-stripe" style="margin:4px 0;"></div>
 
   <!-- Aturcara -->
   <div style="padding:16px 14px;">
     <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:white;margin-bottom:16px;">Aturcara Majlis</div>
 
+    <!-- Sesi Nikah & Tunang -->
     <div style="margin-bottom:20px;">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
         <div style="height:1px;flex:1;background:linear-gradient(to right,var(--nf-red),transparent);"></div>
-        <div style="font-size:.58rem;font-weight:600;color:var(--nf-red);letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;">Sesi Nikah &amp; Tunang</div>
+        <div style="font-size:0.58rem;font-weight:600;color:var(--nf-red);letter-spacing:0.18em;text-transform:uppercase;white-space:nowrap;">Sesi Nikah &amp; Tunang</div>
         <div style="height:1px;flex:1;background:linear-gradient(to left,var(--nf-red),transparent);"></div>
       </div>
       <div class="space-y-16">
-        <div class="timeline-item"><div class="timeline-dot"><i class="ph-bold ph-users" style="font-size:.5rem;color:var(--nf-red);"></i></div><div class="nf-card" style="padding:12px;border-radius:6px;"><div style="font-size:.75rem;font-weight:600;color:white;">8:15 AM</div><div style="font-size:.62rem;color:#555;margin-top:2px;">Tetamu Hadir</div></div></div>
-        <div class="timeline-item"><div class="timeline-dot"><i class="ph-bold ph-gift" style="font-size:.5rem;color:var(--nf-red);"></i></div><div class="nf-card" style="padding:12px;border-radius:6px;"><div style="font-size:.75rem;font-weight:600;color:white;">8:30 AM</div><div style="font-size:.62rem;color:#555;margin-top:2px;">Langkah Masuk Pembawa Hantaran</div></div></div>
-        <div class="timeline-item"><div class="timeline-dot"><i class="ph-bold ph-heart" style="font-size:.5rem;color:var(--nf-red);"></i></div><div class="nf-card" style="padding:12px;border-radius:6px;"><div style="font-size:.75rem;font-weight:600;color:white;">8:40 AM</div><div style="font-size:.62rem;color:#555;margin-top:2px;">Langkah Masuk Pengantin</div></div></div>
-        <div class="timeline-item"><div class="timeline-dot"><i class="ph-bold ph-sparkle" style="font-size:.5rem;color:var(--nf-red);"></i></div><div class="nf-card" style="padding:12px;border-radius:6px;"><div style="font-size:.75rem;font-weight:600;color:white;">8:45 AM</div><div style="font-size:.62rem;color:#555;margin-top:2px;">Majlis Tunang</div></div></div>
-        <div class="timeline-item"><div class="timeline-dot"><i class="ph-bold ph-hands-praying" style="font-size:.5rem;color:var(--nf-red);"></i></div><div class="nf-card" style="padding:12px;border-radius:6px;"><div style="font-size:.75rem;font-weight:600;color:white;">9:00 AM</div><div style="font-size:.62rem;color:#555;margin-top:2px;">Sesi Ijab Kabul</div></div></div>
-        <div class="timeline-item"><div class="timeline-dot"><i class="ph-bold ph-handshake" style="font-size:.5rem;color:var(--nf-red);"></i></div><div class="nf-card" style="padding:12px;border-radius:6px;"><div style="font-size:.75rem;font-weight:600;color:white;">9:30 AM</div><div style="font-size:.62rem;color:#555;margin-top:2px;">Sesi Salam Restu &amp; Batal Air Sembahyang</div></div></div>
-        <div class="timeline-item"><div class="timeline-dot"><i class="ph-bold ph-camera" style="font-size:.5rem;color:var(--nf-red);"></i></div><div class="nf-card" style="padding:12px;border-radius:6px;"><div style="font-size:.75rem;font-weight:600;color:white;">10:00 AM</div><div style="font-size:.62rem;color:#555;margin-top:2px;">Sesi Fotografi</div></div></div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="ph-bold ph-users" style="font-size:0.5rem;color:var(--nf-red);"></i></div>
+          <div class="nf-card" style="padding:12px;border-radius:6px;">
+            <div style="font-size:0.75rem;font-weight:600;color:white;">8:15 AM</div>
+            <div style="font-size:0.62rem;color:#555;margin-top:2px;">Tetamu Hadir</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="ph-bold ph-gift" style="font-size:0.5rem;color:var(--nf-red);"></i></div>
+          <div class="nf-card" style="padding:12px;border-radius:6px;">
+            <div style="font-size:0.75rem;font-weight:600;color:white;">8:30 AM</div>
+            <div style="font-size:0.62rem;color:#555;margin-top:2px;">Langkah Masuk Pembawa Hantaran</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="ph-bold ph-heart" style="font-size:0.5rem;color:var(--nf-red);"></i></div>
+          <div class="nf-card" style="padding:12px;border-radius:6px;">
+            <div style="font-size:0.75rem;font-weight:600;color:white;">8:40 AM</div>
+            <div style="font-size:0.62rem;color:#555;margin-top:2px;">Langkah Masuk Pengantin</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="ph-bold ph-sparkle" style="font-size:0.5rem;color:var(--nf-red);"></i></div>
+          <div class="nf-card" style="padding:12px;border-radius:6px;">
+            <div style="font-size:0.75rem;font-weight:600;color:white;">8:45 AM</div>
+            <div style="font-size:0.62rem;color:#555;margin-top:2px;">Majlis Tunang</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="ph-bold ph-hands-praying" style="font-size:0.5rem;color:var(--nf-red);"></i></div>
+          <div class="nf-card" style="padding:12px;border-radius:6px;">
+            <div style="font-size:0.75rem;font-weight:600;color:white;">9:00 AM</div>
+            <div style="font-size:0.62rem;color:#555;margin-top:2px;">Sesi Ijab Kabul</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="ph-bold ph-handshake" style="font-size:0.5rem;color:var(--nf-red);"></i></div>
+          <div class="nf-card" style="padding:12px;border-radius:6px;">
+            <div style="font-size:0.75rem;font-weight:600;color:white;">9:30 AM</div>
+            <div style="font-size:0.62rem;color:#555;margin-top:2px;">Sesi Salam Restu &amp; Batal Air Sembahyang</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="ph-bold ph-camera" style="font-size:0.5rem;color:var(--nf-red);"></i></div>
+          <div class="nf-card" style="padding:12px;border-radius:6px;">
+            <div style="font-size:0.75rem;font-weight:600;color:white;">10:00 AM</div>
+            <div style="font-size:0.62rem;color:#555;margin-top:2px;">Sesi Fotografi</div>
+          </div>
+        </div>
+
       </div>
     </div>
 
+    <!-- Sesi Sanding -->
     <div>
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
         <div style="height:1px;flex:1;background:linear-gradient(to right,var(--nf-red),transparent);"></div>
-        <div style="font-size:.58rem;font-weight:600;color:var(--nf-red);letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;">Sesi Sanding</div>
+        <div style="font-size:0.58rem;font-weight:600;color:var(--nf-red);letter-spacing:0.18em;text-transform:uppercase;white-space:nowrap;">Sesi Sanding</div>
         <div style="height:1px;flex:1;background:linear-gradient(to left,var(--nf-red),transparent);"></div>
       </div>
       <div class="space-y-16">
-        <div class="timeline-item"><div class="timeline-dot"><i class="ph-bold ph-users" style="font-size:.5rem;color:var(--nf-red);"></i></div><div class="nf-card" style="padding:12px;border-radius:6px;"><div style="font-size:.75rem;font-weight:600;color:white;">11:00 AM</div><div style="font-size:.62rem;color:#555;margin-top:2px;">Ketibaan Tetamu</div></div></div>
-        <div class="timeline-item"><div class="timeline-dot"><i class="ph-bold ph-star" style="font-size:.5rem;color:var(--nf-red);"></i></div><div class="nf-card" style="padding:12px;border-radius:6px;"><div style="font-size:.75rem;font-weight:600;color:white;">12:45 PM</div><div style="font-size:.62rem;color:#555;margin-top:2px;">Grand Entrance Pengantin</div></div></div>
-        <div class="timeline-item"><div class="timeline-dot"><i class="ph-bold ph-flag-checkered" style="font-size:.5rem;color:var(--nf-red);"></i></div><div class="nf-card" style="padding:12px;border-radius:6px;"><div style="font-size:.75rem;font-weight:600;color:white;">4:00 PM</div><div style="font-size:.62rem;color:#555;margin-top:2px;">Tamat Majlis</div></div></div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="ph-bold ph-users" style="font-size:0.5rem;color:var(--nf-red);"></i></div>
+          <div class="nf-card" style="padding:12px;border-radius:6px;">
+            <div style="font-size:0.75rem;font-weight:600;color:white;">11:00 AM</div>
+            <div style="font-size:0.62rem;color:#555;margin-top:2px;">Ketibaan Tetamu</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="ph-bold ph-star" style="font-size:0.5rem;color:var(--nf-red);"></i></div>
+          <div class="nf-card" style="padding:12px;border-radius:6px;">
+            <div style="font-size:0.75rem;font-weight:600;color:white;">12:45 PM</div>
+            <div style="font-size:0.62rem;color:#555;margin-top:2px;">Grand Entrance Pengantin</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"><i class="ph-bold ph-flag-checkered" style="font-size:0.5rem;color:var(--nf-red);"></i></div>
+          <div class="nf-card" style="padding:12px;border-radius:6px;">
+            <div style="font-size:0.75rem;font-weight:600;color:white;">4:00 PM</div>
+            <div style="font-size:0.62rem;color:#555;margin-top:2px;">Tamat Majlis</div>
+          </div>
+        </div>
+
       </div>
     </div>
+
   </div>
 
   <!-- Lokasi -->
   <div style="padding:0 14px 16px;">
     <div class="nf-card2" style="padding:16px;border-radius:8px;text-align:center;">
       <div style="font-family:'Playfair Display',serif;font-size:1rem;color:white;margin-bottom:4px;">Lokasi Majlis</div>
-      <div style="font-size:.62rem;color:#555;margin-bottom:14px;">De Palma Hotel, Kuala Selangor</div>
+      <div style="font-size:0.62rem;color:#555;margin-bottom:14px;">De Palma Hotel, Kuala Selangor</div>
       <div style="display:flex;flex-direction:column;gap:8px;">
-        <a href="https://maps.app.goo.gl/7zeAkfxwcnPgHjC66" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:5px;font-size:.65rem;font-weight:600;color:white;background:var(--nf-red);text-decoration:none;">
+        <a href="https://maps.app.goo.gl/7zeAkfxwcnPgHjC66" target="_blank"
+           style="display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:5px;font-size:0.65rem;font-weight:600;color:white;background:var(--nf-red);text-decoration:none;">
           <i class="ph-bold ph-map-pin"></i> Google Maps
         </a>
-        <a href="https://waze.com/ul/hw0xgpcc4u" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:5px;font-size:.65rem;font-weight:500;color:#bbb;background:var(--nf-card);border:.5px solid #2a2a2a;text-decoration:none;">
+        <a href="https://waze.com/ul/hw0xgpcc4u" target="_blank"
+           style="display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;border-radius:5px;font-size:0.65rem;font-weight:500;color:#bbb;background:var(--nf-card);border:0.5px solid #2a2a2a;text-decoration:none;">
           <i class="ph-bold ph-navigation-arrow"></i> Waze
         </a>
       </div>
     </div>
   </div>
+
 </div>
 
-<!-- DUITNOW PAGE -->
+<!-- ======================================= -->
+<!-- ============ DUITNOW PAGE ============= -->
+<!-- ======================================= -->
 <div id="page-DuitNow" class="page-section">
+
   <div style="padding:14px 14px 8px;">
     <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:white;">Hadiah DuitNow</div>
-    <div style="font-size:.62rem;color:#555;margin-top:2px;">Doakan kami kekal bahagia</div>
+    <div style="font-size:0.62rem;color:#555;margin-top:2px;">Doakan kami kekal bahagia</div>
   </div>
 
   <div style="padding:0 14px 14px;">
     <div class="qr-box">
-      <div style="font-size:.55rem;color:#444;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px;">Imbas untuk transfer</div>
+      <div style="font-size:0.55rem;color:#444;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;">Imbas untuk transfer</div>
       <div class="qr-placeholder">
         <i class="ph-bold ph-qr-code" style="font-size:3rem;color:#2a2a2a;"></i>
-        <div style="font-size:.55rem;color:#2a2a2a;text-align:center;line-height:1.4;">QR akan<br>dipaparkan<br>di sini</div>
+        <div style="font-size:0.55rem;color:#2a2a2a;text-align:center;line-height:1.4;">QR akan<br>dipaparkan<br>di sini</div>
       </div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:white;margin-bottom:3px;">Dr. Syifa &amp; Azhar</div>
-      <div style="font-size:.62rem;color:#555;">DuitNow · Bank Islam</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:white;margin-bottom:3px;">Dr. Syifa & Azhar</div>
+      <div style="font-size:0.62rem;color:#555;">DuitNow · Bank Islam</div>
     </div>
   </div>
 
+  <!-- Love note -->
   <div style="padding:0 14px 14px;">
-    <div style="background:#1a0303;border-radius:8px;padding:14px;border:.5px solid #2d1010;display:flex;align-items:flex-start;gap:10px;">
+    <div style="background:#1a0303;border-radius:8px;padding:14px;border:0.5px solid #2d1010;display:flex;align-items:flex-start;gap:10px;">
       <i class="ph-bold ph-heart" style="font-size:1.1rem;color:var(--nf-red);flex-shrink:0;margin-top:1px;"></i>
-      <div style="font-size:.67rem;color:#777;line-height:1.6;">Sebarang jumlah amat kami hargai. Terima kasih kerana hadir bersama kami pada hari istimewa ini.</div>
+      <div style="font-size:0.67rem;color:#777;line-height:1.6;">Sebarang jumlah amat kami hargai. Terima kasih kerana hadir bersama kami pada hari istimewa ini.</div>
     </div>
   </div>
 
+  <!-- Actions -->
   <div style="padding:0 14px;display:flex;gap:8px;">
     <div class="duitnow-action">
       <i class="ph-bold ph-download-simple"></i>
@@ -673,74 +1605,99 @@
       <span>No. Akaun</span>
     </div>
   </div>
+
 </div>
 
-<!-- ADMIN PAGE -->
+<!-- ======================================= -->
+<!-- ============= ADMIN PAGE ============== -->
+<!-- ======================================= -->
 <div id="page-Admin" class="page-section">
+
   <div style="padding:14px;">
     <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:white;margin-bottom:14px;">Admin Dashboard</div>
 
     <div id="adminLogin" style="text-align:center;padding:32px 0;">
       <i class="ph-bold ph-lock-key" style="font-size:2.5rem;color:#2a2a2a;display:block;margin-bottom:10px;"></i>
-      <div style="font-size:.62rem;color:#444;letter-spacing:.1em;text-transform:uppercase;">Sila guna ikon gear untuk akses admin</div>
+      <div style="font-size:0.62rem;color:#444;letter-spacing:0.1em;text-transform:uppercase;">Sila guna ikon gear untuk akses admin</div>
     </div>
 
     <div id="adminContent" class="hidden">
+
+      <!-- Stats -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
         <div class="admin-stat">
-          <div style="font-size:.55rem;color:var(--nf-red);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Total Pax</div>
+          <div style="font-size:0.55rem;color:var(--nf-red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Total Pax</div>
           <div id="totalPax" style="font-size:2rem;font-weight:300;color:white;">0</div>
         </div>
         <div class="admin-stat">
-          <div style="font-size:.55rem;color:var(--nf-red);text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">Total POV</div>
+          <div style="font-size:0.55rem;color:var(--nf-red);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Total POV</div>
           <div id="totalPov" style="font-size:2rem;font-weight:300;color:white;">0</div>
         </div>
       </div>
 
+      <!-- Tambah Wishlist -->
       <div class="nf-card2" style="border-radius:8px;padding:16px;margin-bottom:16px;">
-        <div style="font-size:.75rem;font-weight:600;color:white;margin-bottom:12px;display:flex;align-items:center;gap:6px;">
+        <div style="font-size:0.75rem;font-weight:600;color:white;margin-bottom:12px;display:flex;align-items:center;gap:6px;">
           <i class="ph-bold ph-gift" style="color:var(--nf-red);"></i> Tambah Wishlist
         </div>
         <div class="space-y-12">
-          <div><label class="nf-label">Nama Hadiah</label><input type="text" id="giftName" placeholder="Nama hadiah" class="nf-input"></div>
-          <div><label class="nf-label">Deskripsi</label><input type="text" id="giftDesc" placeholder="Deskripsi ringkas" class="nf-input"></div>
-          <div><label class="nf-label">Link Shopee/Lazada</label><input type="url" id="giftLink" placeholder="https://..." class="nf-input"></div>
-          <button onclick="submitNewGift()" id="addGiftBtn" class="btn-nf w-full" style="padding:10px;border-radius:6px;justify-content:center;font-size:.7rem;">
+          <div>
+            <label class="nf-label">Nama Hadiah</label>
+            <input type="text" id="giftName" placeholder="Nama hadiah" class="nf-input">
+          </div>
+          <div>
+            <label class="nf-label">Deskripsi</label>
+            <input type="text" id="giftDesc" placeholder="Deskripsi ringkas" class="nf-input">
+          </div>
+          <div>
+            <label class="nf-label">Link Shopee/Lazada</label>
+            <input type="url" id="giftLink" placeholder="https://..." class="nf-input">
+          </div>
+          <button onclick="submitNewGift()" id="addGiftBtn"
+                  class="btn-nf w-full" style="padding:10px;border-radius:6px;justify-content:center;font-size:0.7rem;">
             <span id="addGiftText">Simpan Hadiah</span>
             <div id="giftLoader" class="spin hidden" style="margin-left:8px;"></div>
           </button>
         </div>
       </div>
 
+      <!-- Senarai Wishlist -->
       <div style="margin-bottom:16px;">
-        <div style="font-size:.65rem;font-weight:600;color:#777;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+        <div style="font-size:0.65rem;font-weight:600;color:#777;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
           <i class="ph-bold ph-list-checks" style="color:var(--nf-red);"></i> Senarai Wishlist
         </div>
         <div id="adminGiftList" style="max-height:300px;overflow-y:auto;">
-          <div style="text-align:center;padding:20px;font-size:.65rem;color:#333;font-style:italic;">Memuatkan senarai...</div>
+          <div style="text-align:center;padding:20px;font-size:0.65rem;color:#333;font-style:italic;">Memuatkan senarai...</div>
         </div>
       </div>
 
+      <!-- POV Management -->
       <div>
-        <div style="font-size:.65rem;font-weight:600;color:#777;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
+        <div style="font-size:0.65rem;font-weight:600;color:#777;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;display:flex;align-items:center;gap:6px;">
           <i class="ph-bold ph-images" style="color:var(--nf-red);"></i> Pengurusan POV
         </div>
         <div id="adminPovList" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;min-height:200px;"></div>
       </div>
+
     </div>
   </div>
 </div>
 
-<!-- BOTTOM NAV -->
+<!-- ======================================= -->
+<!-- ============= BOTTOM NAV ============== -->
+<!-- ======================================= -->
 <nav id="bottomNav">
   <div class="nav-item active" onclick="switchPage('Index')" id="nav-Index">
     <i class="ph-bold ph-house"></i>
     <span>Utama</span>
     <div class="nav-dot"></div>
   </div>
+  <!-- Hadiah nav removed -->
   <div class="nav-pov-btn" onclick="switchPage('Pov')" id="nav-Pov">
-    <div class="pov-circle"><i class="ph-bold ph-camera"></i></div>
-    <span style="font-size:.55rem;font-weight:500;color:var(--nf-red);">POV</span>
+    <div class="pov-circle">
+      <i class="ph-bold ph-camera"></i>
+    </div>
+    <span style="font-size:0.55rem;font-weight:500;color:var(--nf-red);">POV</span>
   </div>
   <div class="nav-item" onclick="switchPage('Info')" id="nav-Info">
     <i class="ph-bold ph-calendar-check"></i>
@@ -754,22 +1711,30 @@
   </div>
 </nav>
 
-<!-- FLOATING ADD BTN -->
+<!-- ======================================= -->
+<!-- ======== FLOATING ADD BTN ============= -->
+<!-- ======================================= -->
 <button id="floatingAddBtn" onclick="openUploadModal()">
   <i class="ph-bold ph-plus"></i>
 </button>
 
-<!-- BOOKING MODAL -->
+<!-- ======================================= -->
+<!-- ========== BOOKING MODAL ============= -->
+<!-- ======================================= -->
 <div id="bookingModal">
   <div class="booking-inner">
     <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:white;margin-bottom:4px;">Pilih Hadiah Ini?</div>
-    <div style="font-size:.62rem;color:#555;margin-bottom:14px;">Masukkan nama anda untuk menempah hadiah ini</div>
+    <div style="font-size:0.62rem;color:#555;margin-bottom:14px;">Masukkan nama anda untuk menempah hadiah ini</div>
     <label class="nf-label">Nama Anda</label>
     <input type="text" id="donorName" placeholder="Nama anda" class="nf-input mb-12" style="margin-bottom:14px;">
     <input type="hidden" id="selectedItemId">
     <div style="display:flex;gap:8px;margin-top:4px;">
-      <button onclick="closeModal()" style="flex:1;padding:10px;border:none;background:none;color:#555;font-family:'DM Sans',sans-serif;font-size:.7rem;cursor:pointer;border-radius:5px;">Batal</button>
-      <button onclick="confirmBooking()" id="confirmBtn" class="btn-nf" style="flex:1;padding:10px;border-radius:5px;justify-content:center;font-size:.7rem;">
+      <button onclick="closeModal()"
+              style="flex:1;padding:10px;border:none;background:none;color:#555;font-family:'DM Sans',sans-serif;font-size:0.7rem;cursor:pointer;border-radius:5px;">
+        Batal
+      </button>
+      <button onclick="confirmBooking()" id="confirmBtn"
+              class="btn-nf" style="flex:1;padding:10px;border-radius:5px;justify-content:center;font-size:0.7rem;">
         <span id="confirmBtnText">Ya, Pilih</span>
         <div id="confirmLoader" class="spin hidden" style="margin-left:8px;"></div>
       </button>
@@ -777,30 +1742,29 @@
   </div>
 </div>
 
+<!-- ======================================= -->
 <!-- =============== SCRIPTS =============== -->
+<!-- ======================================= -->
 <script>
-// ======================================================
-//  KONFIGURASI — tukar URL ini jika GAS di-redeploy
-// ======================================================
-const GAS_URL = "https://script.google.com/macros/s/AKfycbyn5HdthT503AP4Iqsr2yZFq9IgCuazbZCzznmMfphCKrUaVol2dzSPKBUSovQ944Ut4A/exec";
 
-// ======================================================
-//  API HELPER
-//  gasGet(action, params)  — GET request
-//  gasPost(action, body)   — POST request
-// ======================================================
-async function gasGet(action, params = {}) {
-  const qs = new URLSearchParams({ action, ...params }).toString();
-  const res = await fetch(`${GAS_URL}?${qs}`);
-  return res.json();
+// ======== GAS API HELPERS ========
+// URL GAS Web App — tukar kalau deploy semula
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbyn5HdthT503AP4Iqsr2yZFq9IgCuazbZCzznmMfphCKrUaVol2dzSPKBUSovQ944Ut4A/exec';
+
+// GET request → ?action=xxx
+function gasGet(action) {
+  return fetch(GAS_URL + '?action=' + encodeURIComponent(action))
+    .then(function(r) { return r.json(); });
 }
 
-async function gasPost(action, body = {}) {
-  const res = await fetch(GAS_URL, {
+// POST request — guna text/plain untuk elak CORS preflight
+function gasPost(action, payload) {
+  var body = Object.assign({ action: action }, payload);
+  return fetch(GAS_URL, {
     method: 'POST',
-    body: JSON.stringify({ action, ...body })
-  });
-  return res.json();
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(body)
+  }).then(function(r) { return r.json(); });
 }
 
 // ======== VIDEO HANDLERS ========
@@ -810,9 +1774,10 @@ function videoReady() {
   const video = document.getElementById('bgVideo');
   if (video) video.play().catch(() => {});
 }
+
 function videoError() {
   const wrapper = document.getElementById('videoWrapper');
-  if (wrapper) wrapper.style.background = 'linear-gradient(160deg,#0d0d0d 0%,#1a0000 100%)';
+  if (wrapper) wrapper.style.background = 'linear-gradient(160deg, #0d0d0d 0%, #1a0000 100%)';
 }
 
 // ======== INTRO ========
@@ -823,7 +1788,7 @@ function initPetals() {
   function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   resize();
   window.addEventListener('resize', resize);
-  const colors = ['#E50914','#cc0000','#ff4444','#ff8888','#ffffff','#888888'];
+  const colors = ['#E50914', '#cc0000', '#ff4444', '#ff8888', '#ffffff', '#888888'];
   const petals = Array.from({ length: 40 }, () => ({
     x: Math.random() * window.innerWidth,
     y: Math.random() * window.innerHeight * -1,
@@ -891,12 +1856,18 @@ function switchPage(pageId) {
   document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
   const page = document.getElementById('page-' + pageId);
   if (page) page.classList.add('active');
+
+  // Bottom nav items
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   const navEl = document.getElementById('nav-' + pageId);
   if (navEl) navEl.classList.add('active');
+
+  // Tab highlights
   document.querySelectorAll('.nf-tab').forEach(t => {
     t.classList.toggle('active', t.dataset.page === pageId);
   });
+
+  // Floating add btn
   const addBtn = document.getElementById('floatingAddBtn');
   if (pageId === 'Pov') {
     addBtn.style.display = 'flex';
@@ -904,12 +1875,16 @@ function switchPage(pageId) {
   } else {
     addBtn.style.display = 'none';
   }
+
   if (pageId === 'Index') loadHomeRecentPov();
   if (pageId === 'Hadiah') loadWishlist();
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function openMaps() { window.open('https://maps.app.goo.gl/7zeAkfxwcnPgHjC66', '_blank'); }
+function openMaps() {
+  window.open('https://maps.app.goo.gl/7zeAkfxwcnPgHjC66', '_blank');
+}
 
 function copyAccount() {
   navigator.clipboard.writeText('1234567890').then(() => {
@@ -920,33 +1895,30 @@ function copyAccount() {
 }
 
 // ======== HOME RECENT POV ========
-async function loadHomeRecentPov() {
-  const c = document.getElementById('homeRecentPov');
-  try {
-    const data = await gasGet('getPovData');
+function loadHomeRecentPov() {
+  gasGet('getPovData').then(data => {
+    const c = document.getElementById('homeRecentPov');
     if (!data || !data.length) {
-      c.innerHTML = '<div class="msg-card" style="min-width:140px;display:flex;align-items:center;justify-content:center;min-height:80px;"><span style="font-size:.6rem;color:#333;font-style:italic;">Tiada momen.</span></div>';
+      c.innerHTML = '<div class="msg-card" style="min-width:140px;display:flex;align-items:center;justify-content:center;min-height:80px;"><span style="font-size:0.6rem;color:#333;font-style:italic;">Tiada momen.</span></div>';
       return;
     }
     const recent = data.slice(0, 6);
     c.innerHTML = recent.map(item => {
       if (item.fileId) {
-        return `<div class="msg-card" style="min-width:130px;padding:0;overflow:hidden;border-radius:6px;cursor:pointer;" onclick="openLightbox('${item.url}','${item.name}','${(item.message||'').replace(/'/g,"\\'")}')">
+        return `<div class="msg-card" style="min-width:130px;padding:0;overflow:hidden;border-radius:6px;" onclick="openLightbox('${item.url}','${item.name}','${(item.message||'').replace(/'/g,"\\'")}')">
           <img src="${item.url}" style="width:100%;height:74px;object-fit:cover;display:block;">
           <div style="padding:7px 8px;">
-            <div style="font-size:.55rem;color:var(--nf-red);font-weight:600;text-transform:uppercase;letter-spacing:.04em;">${item.name}</div>
-            <div style="font-size:.6rem;color:#555;font-style:italic;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${item.message||''}</div>
+            <div style="font-size:0.55rem;color:var(--nf-red);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;">${item.name}</div>
+            <div style="font-size:0.6rem;color:#555;font-style:italic;margin-top:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${item.message||''}</div>
           </div>
         </div>`;
       }
       return `<div class="msg-card" style="min-width:130px;cursor:pointer;" onclick="openLightbox('','${item.name}','${(item.message||'').replace(/'/g,"\\'")}')">
-        <div style="font-size:.55rem;color:var(--nf-red);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;">${item.name}</div>
-        <div style="font-family:'Playfair Display',serif;font-size:.68rem;font-style:italic;color:#777;line-height:1.5;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">"${item.message||''}"</div>
+        <div style="font-size:0.55rem;color:var(--nf-red);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:5px;">${item.name}</div>
+        <div style="font-family:'Playfair Display',serif;font-size:0.68rem;font-style:italic;color:#777;line-height:1.5;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;">"${item.message||''}"</div>
       </div>`;
     }).join('');
-  } catch(e) {
-    c.innerHTML = '<div class="msg-card" style="min-width:140px;display:flex;align-items:center;justify-content:center;min-height:80px;"><span style="font-size:.6rem;color:#555;font-style:italic;">Gagal memuatkan.</span></div>';
-  }
+  }).catch(() => {});
 }
 
 // ======== INIT ========
@@ -1010,54 +1982,55 @@ window.onclick = (e) => {
 };
 
 // ======== GALLERY LIVE FEED ========
-async function loadLiveFeed() {
+function loadLiveFeed() {
   const container = document.getElementById('galleryContainer');
-  try {
-    const data = await gasGet('getPovData');
+  gasGet('getPovData').then(data => {
     if (!data || data.length === 0) {
-      container.innerHTML = '<p style="text-align:center;padding:40px 14px;font-size:.65rem;color:#333;font-style:italic;">Tiada momen dijumpai.</p>';
+      container.innerHTML = '<p style="text-align:center;padding:40px 14px;font-size:0.65rem;color:#333;font-style:italic;">Tiada momen dijumpai.</p>';
       return;
     }
     container.innerHTML = data.map(item => {
       const cleanMsg   = item.message ? item.message.replace(/\n/g,' ').replace(/'/g,"\\'") : '';
       const displayMsg = item.message ? item.message.replace(/\n/g,'<br>') : '';
       if (!item.fileId || item.fileId === '') {
-        return `<div class="feed-card" onclick="openLightbox('','${item.name}','${cleanMsg}')">
-          <div class="feed-text-only">
-            <div style="font-size:.9rem;color:var(--nf-red);margin-bottom:6px;">"</div>
+        return `
+          <div class="feed-card" onclick="openLightbox('','${item.name}','${cleanMsg}')">
+            <div class="feed-text-only">
+              <div style="font-size:0.9rem;color:var(--nf-red);margin-bottom:6px;">"</div>
+              <div class="feed-msg">${displayMsg}</div>
+              <div style="font-size:0.55rem;color:var(--nf-red);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin-top:7px;">— ${item.name}</div>
+            </div>
+          </div>`;
+      }
+      return `
+        <div class="feed-card" onclick="openLightbox('${item.url}','${item.name}','${cleanMsg}')">
+          <div class="feed-card-img">
+            <div style="height:2px;background:var(--nf-red);"></div>
+            <img src="${item.url}" loading="lazy" style="width:100%;height:auto;display:block;">
+          </div>
+          <div class="feed-card-info">
+            <div class="feed-name">${item.name}</div>
             <div class="feed-msg">${displayMsg}</div>
-            <div style="font-size:.55rem;color:var(--nf-red);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-top:7px;">— ${item.name}</div>
           </div>
         </div>`;
-      }
-      return `<div class="feed-card" onclick="openLightbox('${item.url}','${item.name}','${cleanMsg}')">
-        <div class="feed-card-img">
-          <div style="height:2px;background:var(--nf-red);"></div>
-          <img src="${item.url}" loading="lazy" style="width:100%;height:auto;display:block;">
-        </div>
-        <div class="feed-card-info">
-          <div class="feed-name">${item.name}</div>
-          <div class="feed-msg">${displayMsg}</div>
-        </div>
-      </div>`;
     }).join('');
-  } catch(e) {
-    container.innerHTML = '<p style="text-align:center;padding:40px 14px;font-size:.65rem;color:#555;font-style:italic;">Gagal memuatkan galeri.</p>';
-  }
+  }).catch(() => {});
 }
 
 function openLightbox(url, name, msg) {
   const lb = document.createElement('div');
-  lb.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:300;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;';
+  lb.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:300;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;';
   lb.onclick = (e) => { if (e.target === lb) lb.remove(); };
   lb.innerHTML = `
     <div style="position:relative;max-width:500px;width:100%;display:flex;flex-direction:column;align-items:center;">
-      ${url ? `<img src="${url}" style="max-height:65vh;width:auto;border-radius:8px;margin-bottom:14px;box-shadow:0 20px 60px rgba(0,0,0,.8);">` : ''}
+      ${url ? `<img src="${url}" style="max-height:65vh;width:auto;border-radius:8px;margin-bottom:14px;box-shadow:0 20px 60px rgba(0,0,0,0.8);">` : ''}
       <div style="text-align:center;color:white;padding:0 1.5rem;">
-        <div style="font-size:.6rem;color:var(--nf-red);font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">${name}</div>
-        <p style="font-family:'Playfair Display',serif;font-size:.9rem;font-style:italic;color:#888;line-height:1.6;">${msg||''}</p>
+        <div style="font-size:0.6rem;color:var(--nf-red);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">${name}</div>
+        <p style="font-family:'Playfair Display',serif;font-size:0.9rem;font-style:italic;color:#888;line-height:1.6;">${msg||''}</p>
       </div>
-      <button style="position:absolute;top:-2rem;right:0;color:#555;font-size:1.3rem;background:none;border:none;cursor:pointer;padding:4px;" onclick="this.closest('div').parentElement.remove()">✕</button>
+      <button style="position:absolute;top:-2rem;right:0;color:#555;font-size:1.3rem;background:none;border:none;cursor:pointer;padding:4px;" onclick="this.closest('div').parentElement.remove()">
+        ✕
+      </button>
     </div>`;
   document.body.appendChild(lb);
 }
@@ -1077,18 +2050,25 @@ async function handleUpload() {
         compressImage(file, 2000, 0.9)
       ]);
     }
-    const res = await gasPost('uploadPovData', { data: { name, msg, imageWeb: imgWeb, imageFull: imgFull } });
-    if (res.success) {
-      closeUploadModal();
-      loadLiveFeed();
-      loadHomeRecentPov();
-    } else {
-      alert("Ralat Server: " + (res.error || 'Tidak diketahui'));
-    }
+    gasPost('uploadPovData', { data: { name, msg, imageWeb: imgWeb, imageFull: imgFull } })
+      .then(res => {
+        if (res.success) {
+          closeUploadModal();
+          loadLiveFeed();
+          loadHomeRecentPov();
+        } else {
+          alert("Ralat Server: " + (res.error || 'Tidak diketahui'));
+        }
+        setLoading('submitBtn','loader','btnText', false, "Hantar Moment");
+      })
+      .catch(err => {
+        alert("Ralat Sambungan: " + err);
+        setLoading('submitBtn','loader','btnText', false, "Hantar Moment");
+      });
   } catch(e) {
     alert("Gagal memproses data. Sila cuba lagi.");
+    setLoading('submitBtn','loader','btnText', false, "Hantar Moment");
   }
-  setLoading('submitBtn','loader','btnText', false, "Hantar Moment");
 }
 
 function compressImage(file, maxWidth, quality) {
@@ -1112,13 +2092,11 @@ function compressImage(file, maxWidth, quality) {
 }
 
 // ======== WISHLIST ========
-async function loadWishlist() {
-  const c = document.getElementById('wishlistContainer');
-  if (!c) return;
-  try {
-    const items = await gasGet('getWishlistData');
+function loadWishlist() {
+  gasGet('getWishlistData').then(items => {
+    const c = document.getElementById('wishlistContainer');
     if (!items || !items.length) {
-      c.innerHTML = '<p style="text-align:center;padding:40px 14px;font-size:.65rem;color:#333;font-style:italic;">Tiada hadiah dijumpai.</p>';
+      c.innerHTML = '<p style="text-align:center;padding:40px 14px;font-size:0.65rem;color:#333;font-style:italic;">Tiada hadiah dijumpai.</p>';
       return;
     }
     c.innerHTML = items.map(item => `
@@ -1127,20 +2105,18 @@ async function loadWishlist() {
           <i class="ph-bold ph-gift" style="font-size:1.1rem;color:var(--nf-red);"></i>
         </div>
         <div style="flex:1;">
-          <div style="font-size:.78rem;font-weight:600;color:white;margin-bottom:2px;">${item.name}</div>
-          <div style="font-size:.62rem;color:#555;font-style:italic;margin-bottom:7px;">${item.desc||'Tiada deskripsi'}</div>
+          <div style="font-size:0.78rem;font-weight:600;color:white;margin-bottom:2px;">${item.name}</div>
+          <div style="font-size:0.62rem;color:#555;font-style:italic;margin-bottom:7px;">${item.desc || 'Tiada deskripsi'}</div>
           <div style="display:flex;gap:6px;flex-wrap:wrap;">
             ${item.status === 'Available'
-              ? `<button onclick="openModal('${item.id}')" style="padding:5px 12px;border-radius:4px;font-size:.6rem;font-weight:600;background:var(--nf-red);color:white;border:none;cursor:pointer;">Pilih Hadiah</button>`
-              : `<span style="padding:4px 10px;border-radius:4px;font-size:.58rem;background:rgba(229,9,20,.1);color:#888;border:.5px solid rgba(229,9,20,.2);">DIPILIH: ${item.donor}</span>`
+              ? `<button onclick="openModal('${item.id}')" style="padding:5px 12px;border-radius:4px;font-size:0.6rem;font-weight:600;background:var(--nf-red);color:white;border:none;cursor:pointer;">Pilih Hadiah</button>`
+              : `<span style="padding:4px 10px;border-radius:4px;font-size:0.58rem;background:rgba(229,9,20,0.1);color:#888;border:0.5px solid rgba(229,9,20,0.2);">DIPILIH: ${item.donor}</span>`
             }
-            ${item.link ? `<a href="${item.link}" target="_blank" style="padding:5px 10px;border-radius:4px;font-size:.6rem;color:#777;border:.5px solid #2a2a2a;text-decoration:none;display:inline-flex;align-items:center;gap:4px;"><i class="ph-bold ph-shopping-cart-simple"></i> Lihat</a>` : ''}
+            ${item.link ? `<a href="${item.link}" target="_blank" style="padding:5px 10px;border-radius:4px;font-size:0.6rem;color:#777;border:0.5px solid #2a2a2a;text-decoration:none;display:inline-flex;align-items:center;gap:4px;"><i class="ph-bold ph-shopping-cart-simple"></i> Lihat</a>` : ''}
           </div>
         </div>
       </div>`).join('');
-  } catch(e) {
-    c.innerHTML = '<p style="text-align:center;padding:40px 14px;font-size:.65rem;color:#555;">Gagal memuatkan.</p>';
-  }
+  }).getWishlistData();
 }
 
 function openModal(id) {
@@ -1149,30 +2125,27 @@ function openModal(id) {
 }
 function closeModal() { document.getElementById('bookingModal').classList.remove('show'); }
 
-async function confirmBooking() {
+function confirmBooking() {
   const id   = document.getElementById('selectedItemId').value;
   const name = document.getElementById('donorName').value;
   if (!name) return alert("Sila masukkan nama anda!");
   setLoading('confirmBtn','confirmLoader','confirmBtnText', true, "Memproses...");
-  try {
-    const res = await gasPost('bookGiftItem', { id, donorName: name });
-    if (res.success) {
-      alert("Terima kasih! Hadiah anda telah direkodkan.");
-      closeModal();
-      loadWishlist();
-    } else {
-      alert("Ralat: " + (res.message || 'Gagal'));
-    }
-  } catch(e) {
-    alert("Ralat sambungan: " + e);
-  }
-  setLoading('confirmBtn','confirmLoader','confirmBtnText', false, "Ya, Pilih");
+  gasPost('bookGiftItem', { id: id, donorName: name })
+    .then(res => {
+      if (res.success) { alert("Terima kasih! Hadiah anda telah direkodkan."); closeModal(); loadWishlist(); }
+      else alert("Ralat: " + res.message);
+      setLoading('confirmBtn','confirmLoader','confirmBtnText', false, "Ya, Pilih");
+    })
+    .catch(err => {
+      alert("Ralat: " + err);
+      setLoading('confirmBtn','confirmLoader','confirmBtnText', false, "Ya, Pilih");
+    });
 }
 
 // ======== RSVP ========
 const sesiData = [
-  { label: 'Sesi Nikah & Sanding', info: 'Sesi Nikah & Sanding — 8:15 pagi hingga 4:00 petang. Pakaian Tema Ungu Gelap.' },
-  { label: 'Sesi Sanding',          info: 'Sesi Sanding — 11:00 tengahari hingga 4:00 petang.' }
+  { label: 'Sesi Nikah', info: 'Sesi Nikah — 9:00 pagi hingga 11:00 pagi. Pakaian formal.' },
+  { label: 'Sesi Sanding', info: 'Sesi Sanding — 12:00 tengahari hingga 3:00 petang. Pakaian tema majlis.' }
 ];
 function selSesi(idx) {
   document.querySelectorAll('#sesiBtns .sesi-btn').forEach((b, i) => b.classList.toggle('on', i === idx));
@@ -1191,7 +2164,7 @@ function selSt(idx) {
   document.querySelectorAll('#stBtns .st-btn').forEach((b, i) => b.classList.toggle('on', i === idx));
 }
 
-async function submitRsvp() {
+function submitRsvp() {
   const sesiSelected = document.querySelector('#sesiBtns .sesi-btn.on');
   const stSelected   = document.querySelector('#stBtns .st-btn.on');
   const data = {
@@ -1203,91 +2176,78 @@ async function submitRsvp() {
   };
   if (!data.name || !data.phone) { alert("Sila isi nama dan no. telefon anda."); return; }
   setLoading('rsvpBtn','rsvpLoader','rsvpBtnText', true, "Menghantar...");
-  try {
-    const res = await gasPost('saveRsvpData', { data });
-    if (res.success) {
-      document.getElementById('rsvpForm').classList.add('hidden');
-      document.getElementById('rsvpSuccess').classList.remove('hidden');
-    } else {
-      alert("Ralat: Gagal menyimpan data.");
-    }
-  } catch(e) {
-    alert("Ralat Server: " + e);
-  }
-  setLoading('rsvpBtn','rsvpLoader','rsvpBtnText', false, "Hantar RSVP");
+  gasPost('saveRsvpData', { data: data })
+    .then(res => {
+      if (res.success) {
+        document.getElementById('rsvpForm').classList.add('hidden');
+        document.getElementById('rsvpSuccess').classList.remove('hidden');
+      } else {
+        alert("Ralat: Gagal menyimpan data.");
+        setLoading('rsvpBtn','rsvpLoader','rsvpBtnText', false, "Hantar RSVP");
+      }
+    })
+    .catch(err => {
+      alert("Ralat Server: " + err);
+      setLoading('rsvpBtn','rsvpLoader','rsvpBtnText', false, "Hantar RSVP");
+    });
 }
 
 // ======== ADMIN ========
-let adminPw = '';
-
-async function checkAdmin() {
+function checkAdmin() {
   const pw = prompt("Akses Terhad. Sila masukkan kata laluan:");
-  if (!pw) return;
-  try {
-    const res = await gasPost('checkAdmin', { pw });
-    if (res.success) {
-      adminPw = pw;
-      switchPage('Admin');
-      document.getElementById('adminLogin').classList.add('hidden');
-      document.getElementById('adminContent').classList.remove('hidden');
-      loadAdminData();
-      loadAdminGiftList();
-    } else {
-      alert("Kata laluan salah!");
-    }
-  } catch(e) {
-    alert("Ralat sambungan.");
+  if (pw === "ayangsayang") {
+    switchPage('Admin');
+    document.getElementById('adminLogin').classList.add('hidden');
+    document.getElementById('adminContent').classList.remove('hidden');
+    loadAdminData();
+    loadAdminGiftList();
+  } else if (pw !== null) {
+    alert("Kata laluan salah!");
   }
 }
 
-async function loadAdminData() {
-  try {
-    const data = await gasGet('getAdminStats', { pw: adminPw });
+function loadAdminData() {
+  gasGet('getAdminStats').then(data => {
     document.getElementById('totalPax').innerText = data.totalPax;
     document.getElementById('totalPov').innerText = data.totalPov;
     document.getElementById('adminPovList').innerHTML = data.povEntries.map(p => `
-      <div style="border-radius:6px;overflow:hidden;border:.5px solid #2a2a2a;${p.status==='DELETED'?'opacity:.3':''}">
+      <div style="border-radius:6px;overflow:hidden;border:0.5px solid #2a2a2a;${p.status==='DELETED'?'opacity:0.3':''}">
         <img src="${p.url}" style="width:100%;height:80px;object-fit:cover;display:block;">
         <div style="padding:6px 8px;background:var(--nf-card);">
-          <div style="font-size:.55rem;font-weight:600;color:white;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${p.name}</div>
+          <div style="font-size:0.55rem;font-weight:600;color:white;margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${p.name}</div>
           ${p.status === 'APPROVED'
-            ? `<button onclick="confirmDeletePov('${p.fileId}')" style="width:100%;padding:4px;background:rgba(229,9,20,.15);color:var(--nf-red);border:.5px solid rgba(229,9,20,.25);border-radius:4px;font-size:.55rem;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:.05em;">Padam</button>`
-            : `<div style="text-align:center;font-size:.55rem;color:#444;text-transform:uppercase;letter-spacing:.05em;">DIPADAM</div>`
+            ? `<button onclick="confirmDeletePov('${p.fileId}')" style="width:100%;padding:4px;background:rgba(229,9,20,0.15);color:var(--nf-red);border:0.5px solid rgba(229,9,20,0.25);border-radius:4px;font-size:0.55rem;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em;">Padam</button>`
+            : `<div style="text-align:center;font-size:0.55rem;color:#444;text-transform:uppercase;letter-spacing:0.05em;">DIPADAM</div>`
           }
         </div>
       </div>`).join('');
-  } catch(e) {
-    console.error('Gagal load admin stats:', e);
+  }).getAdminStats();
+}
+
+function confirmDeletePov(fileId) {
+  if (confirm("Adakah anda pasti mahu memadam gambar ini?")) {
+    gasPost('deletePovImage', { fileId: fileId })
+      .then(res => {
+        if (res.success) { loadAdminData(); loadLiveFeed(); }
+      }).catch(() => {});
   }
 }
 
-async function confirmDeletePov(fileId) {
-  if (!confirm("Adakah anda pasti mahu memadam gambar ini?")) return;
-  try {
-    const res = await gasPost('deletePovImage', { pw: adminPw, fileId });
-    if (res.success) { loadAdminData(); loadLiveFeed(); }
-    else alert("Gagal: " + (res.error || ''));
-  } catch(e) {
-    alert("Ralat: " + e);
-  }
-}
-
-async function loadAdminGiftList() {
+function loadAdminGiftList() {
   const c = document.getElementById('adminGiftList');
   if (!c) return;
-  c.innerHTML = '<div style="text-align:center;padding:20px;font-size:.65rem;color:#333;font-style:italic;">Menyemak...</div>';
-  try {
-    const items = await gasGet('getWishlistData');
+  c.innerHTML = '<div style="text-align:center;padding:20px;font-size:0.65rem;color:#333;font-style:italic;">Menyemak...</div>';
+  gasGet('getWishlistData').then(items => {
     if (!items || !items.length) {
-      c.innerHTML = '<div style="text-align:center;padding:20px;font-size:.65rem;color:#333;font-style:italic;">Tiada hadiah.</div>';
+      c.innerHTML = '<div style="text-align:center;padding:20px;font-size:0.65rem;color:#333;font-style:italic;">Tiada hadiah.</div>';
       return;
     }
     c.innerHTML = items.map(item => `
-      <div style="padding:10px 12px;background:var(--nf-card);border:.5px solid #2a2a2a;border-radius:6px;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+      <div style="padding:10px 12px;background:var(--nf-card);border:0.5px solid #2a2a2a;border-radius:6px;display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
         <div style="flex:1;padding-right:8px;overflow:hidden;">
-          <div style="font-size:.72rem;font-weight:600;color:white;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${item.name}</div>
-          <div style="font-size:.58rem;color:#444;font-style:italic;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${item.desc||'-'}</div>
-          <span style="display:inline-block;margin-top:4px;padding:2px 7px;border-radius:3px;font-size:.5rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;${item.status==='Available'?'background:rgba(39,174,96,.12);color:#5d9;':'background:rgba(229,9,20,.1);color:#e50914;'}">
+          <div style="font-size:0.72rem;font-weight:600;color:white;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${item.name}</div>
+          <div style="font-size:0.58rem;color:#444;font-style:italic;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${item.desc||'-'}</div>
+          <span style="display:inline-block;margin-top:4px;padding:2px 7px;border-radius:3px;font-size:0.5rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;${item.status==='Available'?'background:rgba(39,174,96,0.12);color:#5d9;':'background:rgba(229,9,20,0.1);color:#e50914;'}">
             ${item.status} ${item.donor ? '· '+item.donor : ''}
           </span>
         </div>
@@ -1295,41 +2255,36 @@ async function loadAdminGiftList() {
           <i class="ph-bold ph-trash"></i>
         </button>
       </div>`).join('');
-  } catch(e) {
-    c.innerHTML = '<div style="text-align:center;padding:20px;font-size:.65rem;color:#555;">Gagal memuatkan.</div>';
-  }
+  }).getWishlistData();
 }
 
-async function submitNewGift() {
+function submitNewGift() {
   const name = document.getElementById('giftName').value;
   const desc = document.getElementById('giftDesc').value;
   const link = document.getElementById('giftLink').value;
   if (!name) return alert("Sila masukkan nama hadiah!");
   setLoading('addGiftBtn','giftLoader','addGiftText', true, "Menyimpan...");
-  try {
-    const res = await gasPost('addWishlistItem', { pw: adminPw, itemData: { name, desc, link } });
-    if (res.success) {
-      alert("Hadiah berjaya disimpan!");
-      ['giftName','giftDesc','giftLink'].forEach(id => document.getElementById(id).value = '');
-      loadAdminGiftList();
-      loadWishlist();
-    } else {
-      alert("Ralat: " + (res.message || ''));
-    }
-  } catch(e) {
-    alert("Ralat: " + e);
-  }
-  setLoading('addGiftBtn','giftLoader','addGiftText', false, "Simpan Hadiah");
+  gasPost('addWishlistItem', { itemData: { name: name, desc: desc, link: link } })
+    .then(res => {
+      if (res.success) {
+        alert("Hadiah berjaya disimpan!");
+        ['giftName','giftDesc','giftLink'].forEach(id => document.getElementById(id).value = '');
+        loadAdminGiftList(); loadWishlist();
+      } else alert("Ralat: " + res.message);
+      setLoading('addGiftBtn','giftLoader','addGiftText', false, "Simpan Hadiah");
+    })
+    .catch(err => {
+      alert("Ralat: " + err);
+      setLoading('addGiftBtn','giftLoader','addGiftText', false, "Simpan Hadiah");
+    });
 }
 
-async function deleteGift(id) {
+function deleteGift(id) {
   if (!confirm("Padam hadiah ini secara kekal?")) return;
-  try {
-    const res = await gasPost('deleteWishlistItem', { pw: adminPw, id });
-    if (res.success) { loadAdminGiftList(); loadWishlist(); }
-  } catch(e) {
-    alert("Ralat: " + e);
-  }
+  gasPost('deleteWishlistItem', { id: id })
+    .then(res => {
+      if (res.success) { loadAdminGiftList(); loadWishlist(); }
+    }).catch(() => {});
 }
 
 // ======== UTILITY ========
@@ -1339,6 +2294,7 @@ function setLoading(btnId, loaderId, textId, isLoading, text) {
   if (loaderEl) loaderEl.classList.toggle('hidden', !isLoading);
   document.getElementById(textId).innerText = text;
 }
+
 </script>
 </body>
 </html>
